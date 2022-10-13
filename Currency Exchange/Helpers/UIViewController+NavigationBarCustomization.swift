@@ -15,7 +15,11 @@ extension UIViewController {
         }
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(patternImage: gradientImage)
+        if traitCollection.userInterfaceStyle == .dark {
+            appearance.backgroundColor = nil
+        } else {
+            appearance.backgroundColor = UIColor(patternImage: gradientImage)
+        }
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.preferredFont(forTextStyle: .subheadline)]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -47,7 +51,7 @@ extension CAGradientLayer {
         UIGraphicsBeginImageContext(view.frame.size)
         if let context = UIGraphicsGetCurrentContext() {
             render(in: context)
-            gradientImage = UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch)
+            gradientImage = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
         return gradientImage

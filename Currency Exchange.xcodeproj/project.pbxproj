@@ -17,6 +17,10 @@
 		4D73796528F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73796428F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift */; };
 		4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */; };
 		4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */; };
+		4D73797728F829C800DBDE7F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797628F829C800DBDE7F /* ButtonCell.swift */; };
+		4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797828F82BB100DBDE7F /* BalancesCell.swift */; };
+		4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73799428F9883800DBDE7F /* CurrencyBalanceCell.swift */; };
+		4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606EB28FA33FC00D2F29D /* ReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		4D73796428F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBarCustomization.swift"; sourceTree = "<group>"; };
+		4D73797628F829C800DBDE7F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		4D73797828F82BB100DBDE7F /* BalancesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesCell.swift; sourceTree = "<group>"; };
+		4D73799428F9883800DBDE7F /* CurrencyBalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyBalanceCell.swift; sourceTree = "<group>"; };
+		4DE606EB28FA33FC00D2F29D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +109,9 @@
 		4D73794028F7E1AF00DBDE7F /* Currency Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */,
-				4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */,
-				4D73794728F7E1AF00DBDE7F /* Main.storyboard */,
-				4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */,
-				4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */,
-				4D73794A28F7E1B000DBDE7F /* Assets.xcassets */,
-				4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */,
+				4DE606EE28FA440500D2F29D /* App */,
+				4DE606ED28FA43EB00D2F29D /* Currency Converter */,
+				4DE606EA28FA33EA00D2F29D /* Helpers */,
 				4D73794F28F7E1B000DBDE7F /* Info.plist */,
 			);
 			path = "Currency Exchange";
@@ -128,6 +132,46 @@
 				4D73796428F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift */,
 			);
 			path = "Currency ExchangeUITests";
+			sourceTree = "<group>";
+		};
+		4D73797528F829B000DBDE7F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4D73797628F829C800DBDE7F /* ButtonCell.swift */,
+				4D73797828F82BB100DBDE7F /* BalancesCell.swift */,
+				4D73799428F9883800DBDE7F /* CurrencyBalanceCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4DE606EA28FA33EA00D2F29D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4DE606EB28FA33FC00D2F29D /* ReusableView.swift */,
+				4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4DE606ED28FA43EB00D2F29D /* Currency Converter */ = {
+			isa = PBXGroup;
+			children = (
+				4D73797528F829B000DBDE7F /* Cells */,
+				4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */,
+			);
+			path = "Currency Converter";
+			sourceTree = "<group>";
+		};
+		4DE606EE28FA440500D2F29D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */,
+				4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */,
+				4D73794728F7E1AF00DBDE7F /* Main.storyboard */,
+				4D73794A28F7E1B000DBDE7F /* Assets.xcassets */,
+				4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
+				4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
+				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
+				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
 				4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */,
+				4D73797728F829C800DBDE7F /* ButtonCell.swift in Sources */,
 				4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
