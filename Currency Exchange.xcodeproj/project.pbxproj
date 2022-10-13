@@ -16,6 +16,7 @@
 		4D73796328F7E1B000DBDE7F /* Currency_ExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73796228F7E1B000DBDE7F /* Currency_ExchangeUITests.swift */; };
 		4D73796528F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73796428F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift */; };
 		4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */; };
+		4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4D73796228F7E1B000DBDE7F /* Currency_ExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangeUITests.swift; sourceTree = "<group>"; };
 		4D73796428F7E1B000DBDE7F /* Currency_ExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
+		4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBarCustomization.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */,
 				4D73794728F7E1AF00DBDE7F /* Main.storyboard */,
 				4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */,
+				4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */,
 				4D73794A28F7E1B000DBDE7F /* Assets.xcassets */,
 				4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */,
 				4D73794F28F7E1B000DBDE7F /* Info.plist */,
@@ -260,6 +263,7 @@
 			files = (
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
+				4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */,
 				4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -443,7 +447,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +477,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
