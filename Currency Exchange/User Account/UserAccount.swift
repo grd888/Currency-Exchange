@@ -12,7 +12,9 @@ class UserAccount {
 
   init(initialBalance: AccountBalance? = nil) {
     if let initialBalance = initialBalance {
-      balance = initialBalance
+      for (currency, amount) in initialBalance {
+        balance[currency] = amount
+      }
     }
   }
 

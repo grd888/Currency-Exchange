@@ -9,9 +9,16 @@
 import XCTest
 
 final class UserAccountTests: XCTestCase {
-  func testDefaultInitReturnsZeroBalanceForAllCurrencies() {
+  func test_defaultInit_returnsZeroBalanceForAllCurrencies() {
     let sut = UserAccount()
     XCTAssertEqual(sut.balance, getDefaultBalance())
+  }
+
+  func test_initializeWithOneCurrency_returnsCorrectInitialBalances() {
+    let sut = UserAccount(initialBalance: [.EUR: 1000])
+    XCTAssertEqual(sut.balance[.EUR], 1000.00)
+    XCTAssertEqual(sut.balance[.USD], 0.0)
+    XCTAssertEqual(sut.balance[.JPY], 0.0)
   }
 
   // MARK: Helpers
