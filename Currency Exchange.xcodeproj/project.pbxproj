@@ -12,13 +12,15 @@
 		4D73794928F7E1AF00DBDE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794728F7E1AF00DBDE7F /* Main.storyboard */; };
 		4D73794B28F7E1B000DBDE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794A28F7E1B000DBDE7F /* Assets.xcassets */; };
 		4D73794E28F7E1B000DBDE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */; };
-		4D73795928F7E1B000DBDE7F /* Currency_ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73795828F7E1B000DBDE7F /* Currency_ExchangeTests.swift */; };
 		4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */; };
 		4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */; };
 		4D73797728F829C800DBDE7F /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797628F829C800DBDE7F /* ButtonCell.swift */; };
 		4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797828F82BB100DBDE7F /* BalancesCell.swift */; };
 		4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73799428F9883800DBDE7F /* CurrencyBalanceCell.swift */; };
 		4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606EB28FA33FC00D2F29D /* ReusableView.swift */; };
+		4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606EF28FA49D200D2F29D /* UserAccountTests.swift */; };
+		4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606F228FA4C6700D2F29D /* UserAccount.swift */; };
+		4DE606F528FA4C9000D2F29D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606F428FA4C9000D2F29D /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +42,15 @@
 		4D73794D28F7E1B000DBDE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D73794F28F7E1B000DBDE7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D73795428F7E1B000DBDE7F /* Currency ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Currency ExchangeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D73795828F7E1B000DBDE7F /* Currency_ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangeTests.swift; sourceTree = "<group>"; };
 		4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBarCustomization.swift"; sourceTree = "<group>"; };
 		4D73797628F829C800DBDE7F /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		4D73797828F82BB100DBDE7F /* BalancesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesCell.swift; sourceTree = "<group>"; };
 		4D73799428F9883800DBDE7F /* CurrencyBalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyBalanceCell.swift; sourceTree = "<group>"; };
 		4DE606EB28FA33FC00D2F29D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		4DE606EF28FA49D200D2F29D /* UserAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTests.swift; sourceTree = "<group>"; };
+		4DE606F228FA4C6700D2F29D /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		4DE606F428FA4C9000D2F29D /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		4D73794028F7E1AF00DBDE7F /* Currency Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				4DE606F128FA4C5700D2F29D /* User Account */,
 				4DE606EE28FA440500D2F29D /* App */,
 				4DE606ED28FA43EB00D2F29D /* Currency Converter */,
 				4DE606EA28FA33EA00D2F29D /* Helpers */,
@@ -99,7 +104,7 @@
 		4D73795728F7E1B000DBDE7F /* Currency ExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D73795828F7E1B000DBDE7F /* Currency_ExchangeTests.swift */,
+				4DE606EF28FA49D200D2F29D /* UserAccountTests.swift */,
 			);
 			path = "Currency ExchangeTests";
 			sourceTree = "<group>";
@@ -142,6 +147,15 @@
 				4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4DE606F128FA4C5700D2F29D /* User Account */ = {
+			isa = PBXGroup;
+			children = (
+				4DE606F228FA4C6700D2F29D /* UserAccount.swift */,
+				4DE606F428FA4C9000D2F29D /* Currency.swift */,
+			);
+			path = "User Account";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,9 +261,11 @@
 			files = (
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
 				4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */,
+				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
 				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
 				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
+				4DE606F528FA4C9000D2F29D /* Currency.swift in Sources */,
 				4D73797428F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift in Sources */,
 				4D73797728F829C800DBDE7F /* ButtonCell.swift in Sources */,
 				4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */,
@@ -260,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D73795928F7E1B000DBDE7F /* Currency_ExchangeTests.swift in Sources */,
+				4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
