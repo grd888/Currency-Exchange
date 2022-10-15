@@ -41,6 +41,27 @@ final class CurrencyConverterViewControllerTests: XCTestCase {
     XCTAssertEqual(count, 1)
   }
 
+  func test_sectionHeaderTitleForSection0_returnsMyBalances() {
+    let sut = makeSUT()
+    let text = makeSUT().tableView.dataSource?.tableView?(sut.tableView, titleForHeaderInSection: 0)
+
+    XCTAssertEqual(text, "MY BALANCES")
+  }
+
+  func test_sectionHeaderTitleForSection1_returnsMyBalances() {
+    let sut = makeSUT()
+    let text = makeSUT().tableView.dataSource?.tableView?(sut.tableView, titleForHeaderInSection: 1)
+
+    XCTAssertEqual(text, "CURRENCY EXCHANGE")
+  }
+
+  func test_sectionHeaderTitleForSection2_returnsNil() {
+    let sut = makeSUT()
+    let text = makeSUT().tableView.dataSource?.tableView?(sut.tableView, titleForHeaderInSection: 2)
+
+    XCTAssertNil(text)
+  }
+
   // MARK: Helpers
   private func makeSUT() -> CurrencyConverterViewController {
     let viewModel = CurrencyConverterViewModel()
