@@ -22,6 +22,9 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
     tableView.register(
       UINib(nibName: DestinationCell.reuseIdentifier, bundle: nil),
       forCellReuseIdentifier: DestinationCell.reuseIdentifier)
+    tableView.register(
+      UINib(nibName: ButtonCell.reuseIdentifier, bundle: nil),
+      forCellReuseIdentifier: ButtonCell.reuseIdentifier)
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

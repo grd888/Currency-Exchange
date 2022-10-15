@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,39 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="50" id="ik7-Rc-YtC" customClass="ButtonCell" customModule="Currency_Exchange" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ik7-Rc-YtC" id="KD7-9l-LW6">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15V-AV-4NQ">
-                                            <rect key="frame" x="40" y="0.0" width="310" height="50"/>
-                                            <color key="backgroundColor" name="ColorGradientBlueLeft"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="rhF-TT-Tga"/>
-                                            </constraints>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="SUBMIT">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="15V-AV-4NQ" firstAttribute="leading" secondItem="KD7-9l-LW6" secondAttribute="leadingMargin" constant="20" id="sZU-Zx-Hay"/>
-                                        <constraint firstItem="15V-AV-4NQ" firstAttribute="top" secondItem="KD7-9l-LW6" secondAttribute="top" id="xRI-d5-OpH"/>
-                                        <constraint firstItem="15V-AV-4NQ" firstAttribute="centerY" secondItem="KD7-9l-LW6" secondAttribute="centerY" id="yVB-2q-YFc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="15V-AV-4NQ" secondAttribute="trailing" constant="20" id="zI9-FJ-A9X"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="button" destination="15V-AV-4NQ" id="V52-iI-ESX"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="ziH-fK-ofI" id="BV6-Zq-saY"/>
                             <outlet property="delegate" destination="ziH-fK-ofI" id="2zx-1t-xzS"/>
@@ -81,9 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="ColorGradientBlueLeft">
-            <color red="0.027450980392156862" green="0.46666666666666667" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

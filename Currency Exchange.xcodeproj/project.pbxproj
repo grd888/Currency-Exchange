@@ -35,6 +35,7 @@
 		4DE6071628FABFCF00D2F29D /* SourceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071528FABFCF00D2F29D /* SourceCellViewModel.swift */; };
 		4DE6071828FB5F6F00D2F29D /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE6071728FB5F6F00D2F29D /* SourceCell.xib */; };
 		4DE6071A28FB606300D2F29D /* DestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE6071928FB606300D2F29D /* DestinationCell.xib */; };
+		4DE6071C28FB61E900D2F29D /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE6071B28FB61E900D2F29D /* ButtonCell.xib */; };
 		DCFB0AE5316CB972EE6A2CF9 /* Pods_Currency_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		4DE6071528FABFCF00D2F29D /* SourceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCellViewModel.swift; sourceTree = "<group>"; };
 		4DE6071728FB5F6F00D2F29D /* SourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceCell.xib; sourceTree = "<group>"; };
 		4DE6071928FB606300D2F29D /* DestinationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationCell.xib; sourceTree = "<group>"; };
+		4DE6071B28FB61E900D2F29D /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952325AB177D9BB683F991B2 /* Pods-Currency Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Exchange.release.xcconfig"; path = "Target Support Files/Pods-Currency Exchange/Pods-Currency Exchange.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFAD2BAB7B2DF0CC9EFD1 /* Pods_Currency_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 				4DE6070D28FAB97F00D2F29D /* Converter */,
 				4DE6070B28FAB8ED00D2F29D /* Balances */,
 				4D73797628F829C800DBDE7F /* ButtonCell.swift */,
+				4DE6071B28FB61E900D2F29D /* ButtonCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				4DE6071828FB5F6F00D2F29D /* SourceCell.xib in Resources */,
 				4D73794E28F7E1B000DBDE7F /* LaunchScreen.storyboard in Resources */,
 				4D73794B28F7E1B000DBDE7F /* Assets.xcassets in Resources */,
+				4DE6071C28FB61E900D2F29D /* ButtonCell.xib in Resources */,
 				4D73794928F7E1AF00DBDE7F /* Main.storyboard in Resources */,
 				4DE6071A28FB606300D2F29D /* DestinationCell.xib in Resources */,
 			);

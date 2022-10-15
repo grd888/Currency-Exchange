@@ -11,6 +11,6 @@ class ButtonCell: UITableViewCell {
   @IBOutlet var button: UIButton!
   override func awakeFromNib() {
     super.awakeFromNib()
-    button.layer.cornerRadius = 25.0
+    button.layer.cornerRadius = 22.0
   }
 }
