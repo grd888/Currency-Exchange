@@ -31,6 +31,8 @@
 		4DE6070A28FA990F00D2F29D /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070928FA990F00D2F29D /* UserAccount.swift */; };
 		4DE6070F28FAB9B100D2F29D /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070E28FAB9B100D2F29D /* SourceCell.swift */; };
 		4DE6071128FAB9D200D2F29D /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071028FAB9D200D2F29D /* DestinationCell.swift */; };
+		4DE6071428FABF8D00D2F29D /* SourceCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071328FABF8D00D2F29D /* SourceCellViewModelTests.swift */; };
+		4DE6071628FABFCF00D2F29D /* SourceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071528FABFCF00D2F29D /* SourceCellViewModel.swift */; };
 		DCFB0AE5316CB972EE6A2CF9 /* Pods_Currency_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		4DE6070928FA990F00D2F29D /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		4DE6070E28FAB9B100D2F29D /* SourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
 		4DE6071028FAB9D200D2F29D /* DestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
+		4DE6071328FABF8D00D2F29D /* SourceCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCellViewModelTests.swift; sourceTree = "<group>"; };
+		4DE6071528FABFCF00D2F29D /* SourceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCellViewModel.swift; sourceTree = "<group>"; };
 		6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952325AB177D9BB683F991B2 /* Pods-Currency Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Exchange.release.xcconfig"; path = "Target Support Files/Pods-Currency Exchange/Pods-Currency Exchange.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFAD2BAB7B2DF0CC9EFD1 /* Pods_Currency_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE6070C28FAB90A00D2F29D /* Balances */,
+				4DE6071228FABF7500D2F29D /* Converter */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -259,7 +264,16 @@
 			isa = PBXGroup;
 			children = (
 				4DE6070E28FAB9B100D2F29D /* SourceCell.swift */,
+				4DE6071528FABFCF00D2F29D /* SourceCellViewModel.swift */,
 				4DE6071028FAB9D200D2F29D /* DestinationCell.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		4DE6071228FABF7500D2F29D /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				4DE6071328FABF8D00D2F29D /* SourceCellViewModelTests.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -461,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
+				4DE6071628FABFCF00D2F29D /* SourceCellViewModel.swift in Sources */,
 				4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */,
 				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4DE6071128FAB9D200D2F29D /* DestinationCell.swift in Sources */,
@@ -483,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE606FF28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift in Sources */,
+				4DE6071428FABF8D00D2F29D /* SourceCellViewModelTests.swift in Sources */,
 				4DE606F928FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift in Sources */,
 				4DE6070728FA97C500D2F29D /* BalancesCellViewModelTests.swift in Sources */,
 				4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */,

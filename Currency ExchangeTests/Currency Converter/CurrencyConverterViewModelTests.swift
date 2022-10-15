@@ -49,13 +49,14 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     let account = UserAccount(initialBalance: [.EUR: 100000])
     let sut = makeSUT(account)
     let exp = expectation(description: "Waiting for observable...")
+    // swiftlint:disable:next trailing_closure
     sut.currentBalanceObservable
-      .subscribe { balances in
-        XCTAssertEqual(account.balance[.EUR], balances[.EUR])
-        XCTAssertEqual(account.balance[.USD], 0)
-        XCTAssertEqual(account.balance[.JPY], 0)
+      .subscribe(onNext: { balances in
+        XCTAssertEqual(balances[.EUR], account.balance[.EUR])
+        XCTAssertEqual(balances[.USD], 0)
+        XCTAssertEqual(balances[.JPY], 0)
         exp.fulfill()
-      }
+      })
       .disposed(by: disposeBag)
     wait(for: [exp], timeout: 1.0)
   }
@@ -68,13 +69,14 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     ])
     let sut = makeSUT(account)
     let exp = expectation(description: "Waiting for observable...")
+    // swiftlint:disable:next trailing_closure
     sut.currentBalanceObservable
-      .subscribe { balances in
-        XCTAssertEqual(account.balance[.EUR], balances[.EUR])
-        XCTAssertEqual(account.balance[.USD], balances[.USD])
-        XCTAssertEqual(account.balance[.JPY], balances[.JPY])
+      .subscribe(onNext: { balances in
+        XCTAssertEqual(balances[.EUR], account.balance[.EUR])
+        XCTAssertEqual(balances[.USD], account.balance[.USD])
+        XCTAssertEqual(balances[.JPY], account.balance[.JPY])
         exp.fulfill()
-      }
+      })
       .disposed(by: disposeBag)
     wait(for: [exp], timeout: 1.0)
   }

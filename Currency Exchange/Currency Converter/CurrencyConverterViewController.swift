@@ -58,13 +58,12 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
         // swiftlint:disable:next force_cast
         for: indexPath) as! SourceCell
       return cell
-    } else {
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: DestinationCell.reuseIdentifier,
-        // swiftlint:disable:next force_cast
-        for: indexPath) as! DestinationCell
-      return cell
     }
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: DestinationCell.reuseIdentifier,
+      // swiftlint:disable:next force_cast
+      for: indexPath) as! DestinationCell
+    return cell
   }
 
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
