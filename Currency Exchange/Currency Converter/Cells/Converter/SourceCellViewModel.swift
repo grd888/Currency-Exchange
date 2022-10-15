@@ -11,7 +11,7 @@ import Foundation
 
 struct SourceCellViewModel {
   var sourceCurrencyObservable: Observable<String> {
-    return sourceCurrencySubject.map { $0.toString() }
+    return sourceCurrencySubject.map { $0.toString() + " " }
   }
 
   private var sourceCurrencySubject: BehaviorRelay<Currency>

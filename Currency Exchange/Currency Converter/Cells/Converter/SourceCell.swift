@@ -5,15 +5,26 @@
 //  Created by Greg Delgado on 10/15/22.
 //
 
+import RxSwift
+import RxCocoa
 import UIKit
 
 class SourceCell: UITableViewCell {
   @IBOutlet weak var currencyButton: UIButton!
   @IBOutlet weak var valueTextField: UITextField!
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    currencyButton.setTitle("EUR ", for: .normal)
-    valueTextField.text = "1000.00"
+  private var viewModel: SourceCellViewModel?
+  private var disposeBag = DisposeBag()
+
+  func configure(with viewModel: SourceCellViewModel) {
+    self.viewModel = viewModel
+    viewModel.sourceCurrencyObservable
+      .bind(to: currencyButton.rx.title(for: .normal))
+      .disposed(by: disposeBag)
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    disposeBag = DisposeBag()
   }
 }

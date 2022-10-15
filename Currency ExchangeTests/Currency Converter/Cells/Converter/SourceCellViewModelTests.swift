@@ -32,7 +32,7 @@ final class SourceCellViewModelTests: XCTestCase {
     // swiftlint:disable:next trailing_closure
     sut.sourceCurrencyObservable
       .subscribe(onNext: { currency in
-        XCTAssertEqual(currency, currencySubject.value.toString())
+        XCTAssertEqual(currency, "JPY ")
         exp.fulfill()
       })
       .disposed(by: disposeBag)
@@ -47,7 +47,7 @@ final class SourceCellViewModelTests: XCTestCase {
     sut.sourceCurrencyObservable
       .skip(1)
       .subscribe(onNext: { currency in
-        XCTAssertEqual(currency, "USD")
+        XCTAssertEqual(currency, "USD ")
         exp.fulfill()
       })
       .disposed(by: disposeBag)

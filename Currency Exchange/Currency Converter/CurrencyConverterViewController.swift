@@ -57,6 +57,7 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
         withIdentifier: SourceCell.reuseIdentifier,
         // swiftlint:disable:next force_cast
         for: indexPath) as! SourceCell
+      cell.configure(with: viewModel.getSourceCellViewModel())
       return cell
     }
     let cell = tableView.dequeueReusableCell(

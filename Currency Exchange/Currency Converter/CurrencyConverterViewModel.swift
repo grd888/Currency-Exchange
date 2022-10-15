@@ -53,6 +53,7 @@ class CurrencyConverterViewModel {
     return BalancesCellViewModel(currentBalanceObservable: currentBalance)
   }
 
-//  func getSourceCellViewModel() -> SourceCellViewModel {
-//  }
+  func getSourceCellViewModel() -> SourceCellViewModel {
+    return SourceCellViewModel(sourceCurrencySubject: sourceCurrency)
+  }
 }
