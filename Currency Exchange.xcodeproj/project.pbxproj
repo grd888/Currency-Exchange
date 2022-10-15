@@ -23,6 +23,8 @@
 		4DE606F528FA4C9000D2F29D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606F428FA4C9000D2F29D /* Currency.swift */; };
 		4DE606F928FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */; };
 		4DE606FB28FA657900D2F29D /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */; };
+		4DE606FF28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */; };
+		4DE6070128FA78AD00D2F29D /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070028FA78AD00D2F29D /* Storyboardable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		4DE606F428FA4C9000D2F29D /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModelTests.swift; sourceTree = "<group>"; };
 		4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
+		4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewControllerTests.swift; sourceTree = "<group>"; };
+		4DE6070028FA78AD00D2F29D /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE606EB28FA33FC00D2F29D /* ReusableView.swift */,
+				4DE6070028FA78AD00D2F29D /* Storyboardable.swift */,
 				4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */,
 			);
 			path = Helpers;
@@ -175,6 +180,7 @@
 		4DE606FD28FA778700D2F29D /* Currency Converter */ = {
 			isa = PBXGroup;
 			children = (
+				4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */,
 				4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */,
 			);
 			path = "Currency Converter";
@@ -307,6 +313,7 @@
 				4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */,
 				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
+				4DE6070128FA78AD00D2F29D /* Storyboardable.swift in Sources */,
 				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
 				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
 				4DE606F528FA4C9000D2F29D /* Currency.swift in Sources */,
@@ -321,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE606FF28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift in Sources */,
 				4DE606F928FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift in Sources */,
 				4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */,
 			);

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CurrencyConverterViewController: UITableViewController {
+class CurrencyConverterViewController: UITableViewController, Storyboardable {
+  var viewModel = CurrencyConverterViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setNavigationBarBackground()
@@ -20,20 +22,11 @@ class CurrencyConverterViewController: UITableViewController {
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 3
+    return viewModel.numberOfSections()
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    switch section {
-    case 0:
-      return 1
-    case 1:
-      return 2
-    case 2:
-      return 1
-    default:
-      fatalError("Incorrect number of sections")
-    }
+    return viewModel.numberOfRowsInSection(section)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
