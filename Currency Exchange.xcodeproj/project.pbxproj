@@ -108,8 +108,8 @@
 		4D73795728F7E1B000DBDE7F /* Currency ExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				4DE606EF28FA49D200D2F29D /* UserAccountTests.swift */,
-				4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */,
+				4DE606FC28FA777400D2F29D /* User Account */,
+				4DE606FD28FA778700D2F29D /* Currency Converter */,
 			);
 			path = "Currency ExchangeTests";
 			sourceTree = "<group>";
@@ -162,6 +162,22 @@
 				4DE606F428FA4C9000D2F29D /* Currency.swift */,
 			);
 			path = "User Account";
+			sourceTree = "<group>";
+		};
+		4DE606FC28FA777400D2F29D /* User Account */ = {
+			isa = PBXGroup;
+			children = (
+				4DE606EF28FA49D200D2F29D /* UserAccountTests.swift */,
+			);
+			path = "User Account";
+			sourceTree = "<group>";
+		};
+		4DE606FD28FA778700D2F29D /* Currency Converter */ = {
+			isa = PBXGroup;
+			children = (
+				4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */,
+			);
+			path = "Currency Converter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
