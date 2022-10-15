@@ -10,7 +10,6 @@
 		1CEF99AA41386CD70CAA45F5 /* Pods_Currency_ExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCBFAD2BAB7B2DF0CC9EFD1 /* Pods_Currency_ExchangeTests.framework */; };
 		4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */; };
 		4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */; };
-		4D73794928F7E1AF00DBDE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794728F7E1AF00DBDE7F /* Main.storyboard */; };
 		4D73794B28F7E1B000DBDE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794A28F7E1B000DBDE7F /* Assets.xcassets */; };
 		4D73794E28F7E1B000DBDE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */; };
 		4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */; };
@@ -25,7 +24,6 @@
 		4DE606F928FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */; };
 		4DE606FB28FA657900D2F29D /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */; };
 		4DE606FF28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */; };
-		4DE6070128FA78AD00D2F29D /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070028FA78AD00D2F29D /* Storyboardable.swift */; };
 		4DE6070528FA97B600D2F29D /* BalancesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070328FA979A00D2F29D /* BalancesCellViewModel.swift */; };
 		4DE6070728FA97C500D2F29D /* BalancesCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070628FA97C500D2F29D /* BalancesCellViewModelTests.swift */; };
 		4DE6070A28FA990F00D2F29D /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6070928FA990F00D2F29D /* UserAccount.swift */; };
@@ -55,7 +53,6 @@
 		4D73793E28F7E1AF00DBDE7F /* Currency Exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D73794828F7E1AF00DBDE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D73794A28F7E1B000DBDE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D73794D28F7E1B000DBDE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D73794F28F7E1B000DBDE7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModelTests.swift; sourceTree = "<group>"; };
 		4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
 		4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewControllerTests.swift; sourceTree = "<group>"; };
-		4DE6070028FA78AD00D2F29D /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		4DE6070328FA979A00D2F29D /* BalancesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesCellViewModel.swift; sourceTree = "<group>"; };
 		4DE6070628FA97C500D2F29D /* BalancesCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesCellViewModelTests.swift; sourceTree = "<group>"; };
 		4DE6070928FA990F00D2F29D /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
@@ -177,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				4DE606EB28FA33FC00D2F29D /* ReusableView.swift */,
-				4DE6070028FA78AD00D2F29D /* Storyboardable.swift */,
 				4D73797328F80D6000DBDE7F /* UIViewController+NavigationBarCustomization.swift */,
 			);
 			path = Helpers;
@@ -198,7 +193,6 @@
 			children = (
 				4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */,
 				4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */,
-				4D73794728F7E1AF00DBDE7F /* Main.storyboard */,
 				4D73794A28F7E1B000DBDE7F /* Assets.xcassets */,
 				4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */,
 			);
@@ -385,7 +379,6 @@
 				4D73794E28F7E1B000DBDE7F /* LaunchScreen.storyboard in Resources */,
 				4D73794B28F7E1B000DBDE7F /* Assets.xcassets in Resources */,
 				4DE6071C28FB61E900D2F29D /* ButtonCell.xib in Resources */,
-				4D73794928F7E1AF00DBDE7F /* Main.storyboard in Resources */,
 				4DE6071A28FB606300D2F29D /* DestinationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +485,6 @@
 				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4DE6071128FAB9D200D2F29D /* DestinationCell.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
-				4DE6070128FA78AD00D2F29D /* Storyboardable.swift in Sources */,
 				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
 				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
 				4DE606F528FA4C9000D2F29D /* Currency.swift in Sources */,
@@ -529,14 +521,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D73794728F7E1AF00DBDE7F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D73794828F7E1AF00DBDE7F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4D73794C28F7E1B000DBDE7F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

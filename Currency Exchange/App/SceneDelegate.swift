@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
 
     let window = UIWindow(windowScene: windowScene)
-    let viewController = CurrencyConverterViewController.instantiate()
+    let viewController = CurrencyConverterViewController()
     let userAccount = UserAccount(initialBalance: [.EUR: 1000])
     viewController.viewModel = CurrencyConverterViewModel(userAccount: userAccount)
 

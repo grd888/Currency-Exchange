@@ -7,14 +7,12 @@
 
 import UIKit
 
-class CurrencyConverterViewController: UITableViewController, Storyboardable {
+class CurrencyConverterViewController: UIViewController {
   typealias Section = CurrencyConverterViewModel.Section
 
-  var viewModel = CurrencyConverterViewModel()
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setNavigationBarBackground()
+  lazy var tableView: UITableView = {
+    let tableView = UITableView(frame: .zero, style: .plain)
+    tableView.separatorStyle = .none
     tableView.register(BalancesCell.self, forCellReuseIdentifier: BalancesCell.reuseIdentifier)
     tableView.register(
       UINib(nibName: SourceCell.reuseIdentifier, bundle: nil),
@@ -25,6 +23,17 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
     tableView.register(
       UINib(nibName: ButtonCell.reuseIdentifier, bundle: nil),
       forCellReuseIdentifier: ButtonCell.reuseIdentifier)
+    tableView.dataSource = self
+    return tableView
+  }()
+
+  var viewModel = CurrencyConverterViewModel()
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "Currency Converter"
+    setNavigationBarBackground()
+    setupTableView()
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -32,15 +41,44 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
     setNavigationBarBackground()
   }
 
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  func setupTableView() {
+    view.addSubview(tableView)
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+  }
+
+  func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    if indexPath.row == 0 {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: SourceCell.reuseIdentifier,
+        // swiftlint:disable:next force_cast
+        for: indexPath) as! SourceCell
+      cell.configure(with: viewModel.getSourceCellViewModel())
+      return cell
+    }
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: DestinationCell.reuseIdentifier,
+      // swiftlint:disable:next force_cast
+      for: indexPath) as! DestinationCell
+    return cell
+  }
+}
+
+extension CurrencyConverterViewController: UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections()
   }
 
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfRowsInSection(section)
   }
 
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let section = Section(rawValue: indexPath.section) else {
       fatalError("Incorrect number of sections")
     }
@@ -60,23 +98,7 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
     }
   }
 
-  func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.row == 0 {
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: SourceCell.reuseIdentifier,
-        // swiftlint:disable:next force_cast
-        for: indexPath) as! SourceCell
-      cell.configure(with: viewModel.getSourceCellViewModel())
-      return cell
-    }
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: DestinationCell.reuseIdentifier,
-      // swiftlint:disable:next force_cast
-      for: indexPath) as! DestinationCell
-    return cell
-  }
-
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
       return "MY BALANCES"
