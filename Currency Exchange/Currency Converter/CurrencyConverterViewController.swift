@@ -27,6 +27,34 @@ class CurrencyConverterViewController: UIViewController {
     return tableView
   }()
 
+  lazy var currencyPickerView: UIView = {
+    let view = UIView()
+    let picker = UIPickerView()
+    picker.translatesAutoresizingMaskIntoConstraints = false
+    picker.dataSource = self
+    picker.delegate = self
+    view.addSubview(picker)
+    let toolbar = UIToolbar()
+    toolbar.translatesAutoresizingMaskIntoConstraints = false
+    let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done))
+    toolbar.setItems([button], animated: false)
+    view.addSubview(toolbar)
+    NSLayoutConstraint.activate([
+      toolbar.topAnchor.constraint(equalTo: view.topAnchor),
+      toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      toolbar.heightAnchor.constraint(equalToConstant: 36),
+      picker.topAnchor.constraint(equalTo: view.topAnchor),
+      picker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      picker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      picker.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      picker.heightAnchor.constraint(equalToConstant: 180)
+    ])
+    return view
+  }()
+
+  private var currencyPickerViewBottomConstraint: NSLayoutConstraint?
+
   var viewModel: CurrencyConverterViewModel
 
   init(viewModel: CurrencyConverterViewModel) {
@@ -43,6 +71,7 @@ class CurrencyConverterViewController: UIViewController {
     title = "Currency Converter"
     setNavigationBarBackground()
     setupTableView()
+    setupPickerView()
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -50,7 +79,7 @@ class CurrencyConverterViewController: UIViewController {
     setNavigationBarBackground()
   }
 
-  func setupTableView() {
+  private func setupTableView() {
     view.addSubview(tableView)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -59,6 +88,17 @@ class CurrencyConverterViewController: UIViewController {
       tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
+  }
+
+  private func setupPickerView() {
+    view.addSubview(currencyPickerView)
+    currencyPickerView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      currencyPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      currencyPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
+    currencyPickerViewBottomConstraint = currencyPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    currencyPickerViewBottomConstraint?.isActive = true
   }
 
   func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +115,20 @@ class CurrencyConverterViewController: UIViewController {
       // swiftlint:disable:next force_cast
       for: indexPath) as! DestinationCell
     return cell
+  }
+
+  private func setPickerVisible(_ show: Bool) {
+    guard let currencyPickerViewBottomConstraint = currencyPickerViewBottomConstraint else {
+      return
+    }
+    currencyPickerViewBottomConstraint.constant = show ? 0 : currencyPickerView.frame.height
+    UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
+      self.view.layoutIfNeeded()
+    }
+  }
+
+  @objc func done() {
+    setPickerVisible(false)
   }
 }
 
@@ -116,5 +170,19 @@ extension CurrencyConverterViewController: UITableViewDataSource {
     default:
       return nil
     }
+  }
+}
+
+extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    1
+  }
+
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    3
+  }
+
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    return "Row \(component)"
   }
 }
