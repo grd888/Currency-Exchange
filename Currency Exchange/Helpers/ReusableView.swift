@@ -8,14 +8,14 @@
 import UIKit
 
 protocol ReusableView: AnyObject {
-    static var reuseIdentifier: String { get }
+  static var reuseIdentifier: String { get }
 }
 
 extension ReusableView where Self: UIView {
-    static var reuseIdentifier: String {
-        return NSStringFromClass(self).components(separatedBy: ".").last!
-    }
+  static var reuseIdentifier: String {
+    // swiftlint:disable:next force_unwrapping
+    return NSStringFromClass(self).components(separatedBy: ".").last!
+  }
 }
 
 extension UIView: ReusableView {}
-

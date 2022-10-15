@@ -8,9 +8,9 @@
 import Foundation
 
 class UserAccount {
-    var balances: [Currency: Decimal] = [
-        .eur: 0.0,
-        .usd: 0.0,
-        .jpy: 0.0
-    ]
+  var balances: [Currency: Decimal] = [
+    .EUR: 0.0,
+    .USD: 0.0,
+    .JPY: 0.0
+  ]
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum Currency: String {
-    case eur = "EUR"
-    case usd = "USD"
-    case jpy = "JPY"
+  case EUR
+  case USD
+  case JPY
 }

@@ -9,12 +9,12 @@
 import XCTest
 
 final class UserAccountTests: XCTestCase {
-    func testUserAccountReturnsCurrencyBalances() {
-        let sut = UserAccount()
-        XCTAssertEqual(sut.balances, [
-            Currency.usd: 0.0,
-            Currency.eur: 0.0,
-            Currency.jpy: 0.0
-        ])
-    }
+  func testUserAccountReturnsCurrencyBalances() {
+    let sut = UserAccount()
+    XCTAssertEqual(sut.balances, [
+      Currency.USD: 0.0,
+      Currency.EUR: 0.0,
+      Currency.JPY: 0.0
+    ])
+  }
 }
