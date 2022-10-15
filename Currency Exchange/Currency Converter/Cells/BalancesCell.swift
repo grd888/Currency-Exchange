@@ -8,8 +8,8 @@
 import UIKit
 
 class BalancesCell: UITableViewCell {
-  let itemHeight = 44.0
-  var collectionView: UICollectionView = {
+  private let itemHeight = 44.0
+  private var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
     layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -28,7 +28,7 @@ class BalancesCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func customInit() {
+  private func customInit() {
     contentView.addSubview(collectionView)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -44,9 +44,6 @@ class BalancesCell: UITableViewCell {
 }
 
 extension BalancesCell: UICollectionViewDataSource {
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 5
   }
