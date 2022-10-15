@@ -8,6 +8,8 @@
 import UIKit
 
 class CurrencyBalanceCell: UICollectionViewCell {
+  static let textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout)]
+
   var label: UILabel = {
     let label = UILabel()
     label.font = UIFont.preferredFont(forTextStyle: .callout)

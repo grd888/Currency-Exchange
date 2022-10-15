@@ -67,6 +67,8 @@ extension BalancesCell: UICollectionViewDataSource {
 
 extension BalancesCell: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 150, height: itemHeight)
+    let text = viewModel?.item(forIndex: indexPath.item) ?? ""
+    let size = text.size(withAttributes: CurrencyBalanceCell.textAttributes)
+    return CGSize(width: size.width + 16, height: itemHeight)
   }
 }
