@@ -18,6 +18,16 @@ class UserAccount {
     }
   }
 
+  func sourceCurrency() -> Currency {
+    var source: Currency?
+    print(balance.keys.sorted())
+    for currency in balance.keys.sorted() where balance[currency] ?? 0 > 0 {
+      source = currency
+      break
+    }
+    return source ?? Currency.allCases[0]
+  }
+
   private func defaultBalance() -> AccountBalance {
     return Currency.allCases.reduce(into: AccountBalance()) { balance, currency in
       balance[currency] = 0.0

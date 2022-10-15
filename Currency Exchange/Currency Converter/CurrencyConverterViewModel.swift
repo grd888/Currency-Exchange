@@ -21,6 +21,7 @@ class CurrencyConverterViewModel {
   }
 
   private var currentBalance: BehaviorRelay<AccountBalance>
+  private var sourceCurrency: BehaviorRelay<Currency>
 
   private var configuration: [Section: Int] = [
     .balances: 1,
@@ -34,6 +35,7 @@ class CurrencyConverterViewModel {
     self.userAccount = userAccount
 
     currentBalance = BehaviorRelay(value: userAccount.balance)
+    sourceCurrency = BehaviorRelay(value: userAccount.sourceCurrency())
   }
 
   func numberOfSections() -> Int {
@@ -50,4 +52,7 @@ class CurrencyConverterViewModel {
   func getBalancesViewModel() -> BalancesCellViewModel {
     return BalancesCellViewModel(currentBalanceObservable: currentBalance)
   }
+
+//  func getSourceCellViewModel() -> SourceCellViewModel {
+//  }
 }
