@@ -7,7 +7,9 @@
 
 import Foundation
 
-enum Currency: String {
+typealias AccountBalance = [Currency: Decimal]
+
+enum Currency: String, CaseIterable {
   case EUR
   case USD
   case JPY

@@ -8,9 +8,17 @@
 import Foundation
 
 class UserAccount {
-  var balances: [Currency: Decimal] = [
-    .EUR: 0.0,
-    .USD: 0.0,
-    .JPY: 0.0
-  ]
+  private(set) lazy var balance: AccountBalance = defaultBalance()
+
+  init(initialBalance: AccountBalance? = nil) {
+    if let initialBalance = initialBalance {
+      balance = initialBalance
+    }
+  }
+
+  private func defaultBalance() -> AccountBalance {
+    return Currency.allCases.reduce(into: AccountBalance()) { balance, currency in
+      balance[currency] = 0.0
+    }
+  }
 }
