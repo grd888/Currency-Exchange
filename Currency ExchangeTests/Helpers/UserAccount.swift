@@ -8,6 +8,6 @@
 @testable import Currency_Exchange
 import Foundation
 
-func makeUserAccount() -> UserAccount {
-  return UserAccount()
+func makeUserAccount(balance: AccountBalance? = nil) -> UserAccount {
+  return UserAccount(initialBalance: balance)
 }

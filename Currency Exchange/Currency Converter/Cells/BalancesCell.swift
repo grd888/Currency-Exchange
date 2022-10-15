@@ -60,7 +60,7 @@ extension BalancesCell: UICollectionViewDataSource {
       withReuseIdentifier: CurrencyBalanceCell.reuseIdentifier,
       // swiftlint:disable:next force_cast
       for: indexPath) as! CurrencyBalanceCell
-    cell.title = "USD: 100.00"
+    cell.title = viewModel?.item(forIndex: indexPath.item)
     return cell
   }
 }
