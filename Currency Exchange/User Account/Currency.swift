@@ -14,3 +14,9 @@ enum Currency: String, CaseIterable {
   case USD
   case JPY
 }
+
+extension AccountBalance {
+  func numberOfCurrencies() -> Int {
+    return self.count
+  }
+}

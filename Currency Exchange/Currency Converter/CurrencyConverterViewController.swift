@@ -8,6 +8,8 @@
 import UIKit
 
 class CurrencyConverterViewController: UITableViewController, Storyboardable {
+  typealias Section = CurrencyConverterViewModel.Section
+
   var viewModel = CurrencyConverterViewModel()
 
   override func viewDidLoad() {
@@ -30,20 +32,22 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch indexPath.section {
-    case 0:
+    guard let section = Section(rawValue: indexPath.section) else {
+      fatalError("Incorrect number of sections")
+    }
+    switch section {
+    case .balances:
       let cell = tableView.dequeueReusableCell(
         withIdentifier: BalancesCell.reuseIdentifier,
         // swiftlint:disable:next force_cast
         for: indexPath) as! BalancesCell
+      cell.configure(with: viewModel.getBalancesViewModel())
       return cell
-    case 1:
+    case .converter:
       return currencyCell(tableView, indexPath: indexPath)
-    case 2:
+    case .submit:
       let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.reuseIdentifier, for: indexPath)
       return cell
-    default:
-      fatalError("Incorrect number of sections")
     }
   }
 

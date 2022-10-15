@@ -85,8 +85,4 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     let sut = CurrencyConverterViewModel(userAccount: account ?? makeUserAccount())
     return sut
   }
-
-  private func makeUserAccount() -> UserAccount {
-    return UserAccount()
-  }
 }

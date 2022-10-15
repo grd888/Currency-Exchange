@@ -18,6 +18,7 @@ class BalancesCell: UITableViewCell {
     collectionView.register(CurrencyBalanceCell.self, forCellWithReuseIdentifier: CurrencyBalanceCell.reuseIdentifier)
     return collectionView
   }()
+  private var viewModel: BalancesCellViewModel?
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,6 +29,12 @@ class BalancesCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
+  func configure(with viewModel: BalancesCellViewModel) {
+    self.viewModel = viewModel
+  }
+}
+
+extension BalancesCell {
   private func customInit() {
     contentView.addSubview(collectionView)
     collectionView.translatesAutoresizingMaskIntoConstraints = false

@@ -46,4 +46,8 @@ class CurrencyConverterViewModel {
     }
     return count
   }
+
+  func getBalancesViewModel() -> BalancesCellViewModel {
+    return BalancesCellViewModel(currentBalanceObservable: currentBalance)
+  }
 }
