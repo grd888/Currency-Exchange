@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SourceCell" rowHeight="80" id="GCV-YQ-9bX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SourceCell" rowHeight="80" id="GCV-YQ-9bX" customClass="SourceCell" customModule="Currency_Exchange" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GCV-YQ-9bX" id="Gqp-XS-9wf">
@@ -79,8 +79,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="currencyButton" destination="Ii8-4e-uxx" id="QcM-Ts-VS4"/>
+                                    <outlet property="valueTextField" destination="uP8-Vr-dvv" id="0dw-EW-cM3"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationCell" rowHeight="80" id="edm-xP-FL1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationCell" rowHeight="80" id="edm-xP-FL1" customClass="DestinationCell" customModule="Currency_Exchange" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="135.33333206176758" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edm-xP-FL1" id="mUJ-PS-Qm9">
@@ -141,6 +145,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="currencyButton" destination="kxY-CL-aGr" id="IKl-TZ-KmX"/>
+                                    <outlet property="valueLabel" destination="DkH-rE-vzg" id="d8S-gL-C1A"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="108" id="ik7-Rc-YtC" customClass="ButtonCell" customModule="Currency_Exchange" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="215.33333206176758" width="390" height="108"/>

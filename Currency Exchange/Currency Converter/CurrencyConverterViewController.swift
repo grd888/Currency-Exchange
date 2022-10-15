@@ -53,10 +53,16 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
 
   func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
     if indexPath.row == 0 {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "SourceCell", for: indexPath)
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: SourceCell.reuseIdentifier,
+        // swiftlint:disable:next force_cast
+        for: indexPath) as! SourceCell
       return cell
     } else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationCell", for: indexPath)
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: DestinationCell.reuseIdentifier,
+        // swiftlint:disable:next force_cast
+        for: indexPath) as! DestinationCell
       return cell
     }
   }
