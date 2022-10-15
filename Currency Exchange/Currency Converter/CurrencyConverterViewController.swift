@@ -16,6 +16,12 @@ class CurrencyConverterViewController: UITableViewController, Storyboardable {
     super.viewDidLoad()
     setNavigationBarBackground()
     tableView.register(BalancesCell.self, forCellReuseIdentifier: BalancesCell.reuseIdentifier)
+    tableView.register(
+      UINib(nibName: SourceCell.reuseIdentifier, bundle: nil),
+      forCellReuseIdentifier: SourceCell.reuseIdentifier)
+    tableView.register(
+      UINib(nibName: DestinationCell.reuseIdentifier, bundle: nil),
+      forCellReuseIdentifier: DestinationCell.reuseIdentifier)
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

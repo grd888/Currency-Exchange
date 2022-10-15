@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationCell" rowHeight="80" id="5Zj-D2-146" customClass="DestinationCell" customModule="Currency_Exchange" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Zj-D2-146" id="zm6-WR-CMO">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="djH-AZ-OZu">
+                        <rect key="frame" x="16" y="17" width="48" height="46.666666666666671"/>
+                        <color key="tintColor" name="ColorReceive"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="JvI-Po-rwl"/>
+                            <constraint firstAttribute="width" constant="48" id="bcY-b6-Hco"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Receive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-9J-mZ2">
+                        <rect key="frame" x="80" y="30" width="57" height="20"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-jX-TN1">
+                        <rect key="frame" x="299.66666666666669" y="22.666666666666671" width="74.333333333333314" height="35"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="EUR ">
+                            <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
+                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleCallout"/>
+                        </buttonConfiguration>
+                    </button>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-Qv-s6E">
+                        <rect key="frame" x="80" y="79" width="310" height="1"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="KlK-Xy-s5R"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 110.30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTW-B4-6ug">
+                        <rect key="frame" x="145" y="30.333333333333336" width="146.66666666666663" height="19.333333333333336"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <color key="textColor" name="ColorReceive"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2a1-9J-mZ2" firstAttribute="centerY" secondItem="zm6-WR-CMO" secondAttribute="centerY" id="1GE-ha-IJS"/>
+                    <constraint firstItem="RTW-B4-6ug" firstAttribute="centerY" secondItem="zm6-WR-CMO" secondAttribute="centerY" id="3gA-fQ-cpc"/>
+                    <constraint firstAttribute="trailing" secondItem="qqY-Qv-s6E" secondAttribute="trailing" id="4hI-bI-MyI"/>
+                    <constraint firstAttribute="trailing" secondItem="Qh5-jX-TN1" secondAttribute="trailing" constant="16" id="KMu-S6-zlF"/>
+                    <constraint firstItem="Qh5-jX-TN1" firstAttribute="centerY" secondItem="zm6-WR-CMO" secondAttribute="centerY" id="OVH-Pb-3tW"/>
+                    <constraint firstAttribute="bottom" secondItem="qqY-Qv-s6E" secondAttribute="bottom" id="OkT-gv-pS9"/>
+                    <constraint firstItem="qqY-Qv-s6E" firstAttribute="leading" secondItem="2a1-9J-mZ2" secondAttribute="leading" id="Vgn-kn-AI9"/>
+                    <constraint firstItem="djH-AZ-OZu" firstAttribute="centerY" secondItem="zm6-WR-CMO" secondAttribute="centerY" id="ZpT-FW-wNJ"/>
+                    <constraint firstItem="2a1-9J-mZ2" firstAttribute="leading" secondItem="djH-AZ-OZu" secondAttribute="trailing" constant="16" id="fqd-Vc-MPK"/>
+                    <constraint firstItem="Qh5-jX-TN1" firstAttribute="leading" secondItem="RTW-B4-6ug" secondAttribute="trailing" constant="8" symbolic="YES" id="q3w-Ne-2RW"/>
+                    <constraint firstItem="RTW-B4-6ug" firstAttribute="leading" secondItem="2a1-9J-mZ2" secondAttribute="trailing" constant="8" symbolic="YES" id="rbU-eR-nwo"/>
+                    <constraint firstItem="djH-AZ-OZu" firstAttribute="leading" secondItem="zm6-WR-CMO" secondAttribute="leading" constant="16" id="uC6-GD-JCK"/>
+                    <constraint firstItem="djH-AZ-OZu" firstAttribute="top" secondItem="zm6-WR-CMO" secondAttribute="top" constant="16" id="vaz-Zs-hFk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="currencyButton" destination="Qh5-jX-TN1" id="vAd-9L-jSR"/>
+                <outlet property="valueLabel" destination="RTW-B4-6ug" id="7GK-Pt-2ji"/>
+            </connections>
+            <point key="canvasLocation" x="135" y="21"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow.down.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
+        <namedColor name="ColorReceive">
+            <color red="0.29803921568627451" green="0.68627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
