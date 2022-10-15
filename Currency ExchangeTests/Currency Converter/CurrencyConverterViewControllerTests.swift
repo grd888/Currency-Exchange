@@ -64,9 +64,7 @@ final class CurrencyConverterViewControllerTests: XCTestCase {
 
   // MARK: Helpers
   private func makeSUT() -> CurrencyConverterViewController {
-    let viewModel = CurrencyConverterViewModel()
-    let viewController = CurrencyConverterViewController.instantiate()
-    viewController.viewModel = viewModel
+    let viewController = CurrencyConverterViewController(viewModel: CurrencyConverterViewModel())
     viewController.loadViewIfNeeded()
 
     return viewController

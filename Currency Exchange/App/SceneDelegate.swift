@@ -14,9 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
 
     let window = UIWindow(windowScene: windowScene)
-    let viewController = CurrencyConverterViewController()
+
     let userAccount = UserAccount(initialBalance: [.EUR: 1000])
-    viewController.viewModel = CurrencyConverterViewModel(userAccount: userAccount)
+    let viewModel = CurrencyConverterViewModel(userAccount: userAccount)
+    let viewController = CurrencyConverterViewController(viewModel: viewModel)
 
     window.rootViewController = UINavigationController(rootViewController: viewController)
     window.makeKeyAndVisible()
