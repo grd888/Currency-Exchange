@@ -10,15 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="50" id="2sh-Mh-9hz" customClass="ButtonCell" customModule="Currency_Exchange" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="72" id="2sh-Mh-9hz" customClass="ButtonCell" customModule="Currency_Exchange" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="72"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2sh-Mh-9hz" id="Hd1-Kq-zTJ">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-Ev-Swk">
-                        <rect key="frame" x="40" y="0.0" width="310" height="44"/>
+                        <rect key="frame" x="40" y="16" width="310" height="44"/>
                         <color key="backgroundColor" name="ColorGradientBlueLeft"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="aAh-Pw-OfI"/>
@@ -32,7 +32,7 @@
                 <constraints>
                     <constraint firstItem="cRB-Ev-Swk" firstAttribute="centerY" secondItem="Hd1-Kq-zTJ" secondAttribute="centerY" id="5SN-Bc-9Cg"/>
                     <constraint firstItem="cRB-Ev-Swk" firstAttribute="leading" secondItem="Hd1-Kq-zTJ" secondAttribute="leadingMargin" constant="20" id="ECN-Sn-PSA"/>
-                    <constraint firstItem="cRB-Ev-Swk" firstAttribute="top" secondItem="Hd1-Kq-zTJ" secondAttribute="top" id="MBz-W4-JYg"/>
+                    <constraint firstItem="cRB-Ev-Swk" firstAttribute="top" secondItem="Hd1-Kq-zTJ" secondAttribute="top" constant="16" id="MBz-W4-JYg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cRB-Ev-Swk" secondAttribute="trailing" constant="20" id="iSI-VR-hiV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -40,7 +40,7 @@
             <connections>
                 <outlet property="button" destination="cRB-Ev-Swk" id="lRE-tr-WnW"/>
             </connections>
-            <point key="canvasLocation" x="135" y="21"/>
+            <point key="canvasLocation" x="133.84615384615384" y="28.436018957345969"/>
         </tableViewCell>
     </objects>
     <resources>
