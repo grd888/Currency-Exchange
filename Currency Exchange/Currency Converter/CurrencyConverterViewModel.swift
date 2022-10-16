@@ -58,6 +58,10 @@ class CurrencyConverterViewModel {
   func getSourceCellViewModel() -> SourceCellViewModel {
     return SourceCellViewModel(sourceCurrencySubject: sourceCurrency)
   }
+
+  func getDestinationCellViewModel() -> DestinationCellViewModel {
+    return DestinationCellViewModel(destinationCurrencySubject: destinationCurrency)
+  }
 }
 
 // MARK: - PickerView data
@@ -78,6 +82,6 @@ extension CurrencyConverterViewModel {
   }
   func selectDestinationCurrency(atIndex index: Int) {
     let currency = userAccount.currencyList()[index]
-    sourceCurrency.accept(currency)
+    destinationCurrency.accept(currency)
   }
 }

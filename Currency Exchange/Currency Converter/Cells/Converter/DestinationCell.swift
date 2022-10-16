@@ -18,7 +18,15 @@ class DestinationCell: UITableViewCell {
 
   weak var delegate: DestinationCellDelegate?
 
+  private var viewModel: DestinationCellViewModel?
   private var disposeBag = DisposeBag()
+
+  func configure(with viewModel: DestinationCellViewModel) {
+    self.viewModel = viewModel
+    viewModel.destinationCurrencyObservable
+      .bind(to: currencyButton.rx.title(for: .normal))
+      .disposed(by: disposeBag)
+  }
 
   @IBAction func buttonTapped(_ sender: Any) {
     delegate?.didTapCurrencyChange(self)

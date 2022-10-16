@@ -184,6 +184,7 @@ extension CurrencyConverterViewController: UITableViewDataSource {
       withIdentifier: DestinationCell.reuseIdentifier,
       // swiftlint:disable:next force_cast
       for: indexPath) as! DestinationCell
+    cell.configure(with: viewModel.getDestinationCellViewModel())
     cell.delegate = self
     return cell
   }
@@ -207,7 +208,7 @@ extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDat
     case .source:
       viewModel.selectSourceCurrency(atIndex: row)
     case .destination:
-      break
+      viewModel.selectDestinationCurrency(atIndex: row)
     }
   }
 }
