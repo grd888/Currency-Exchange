@@ -63,6 +63,22 @@ final class UserAccountTests: XCTestCase {
     XCTAssertEqual(sut.defaultSellCurrency(), .EUR)
   }
 
+  func test_BuyCurrency_withSellCurrencyEUR() {
+    let balance: AccountBalance = [.USD: 0, .JPY: 10000, .EUR: 1000]
+    let sut = makeUserAccount(balance: balance)
+
+    XCTAssertEqual(sut.defaultSellCurrency(), .EUR)
+    XCTAssertEqual(sut.defaultBuyCurrency(), .USD)
+  }
+
+  func test_BuyCurrency_withSellCurrencyUSD() {
+    let balance: AccountBalance = [.USD: 100, .JPY: 10000, .EUR: 0]
+    let sut = makeUserAccount(balance: balance)
+
+    XCTAssertEqual(sut.defaultSellCurrency(), .USD)
+    XCTAssertEqual(sut.defaultBuyCurrency(), .EUR)
+  }
+
   func test_currencyList_returnsUserCurrenciesInOrder() {
     let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 0]
     let sut = makeUserAccount(balance: balance)

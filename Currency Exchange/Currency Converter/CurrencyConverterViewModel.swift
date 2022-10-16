@@ -22,6 +22,7 @@ class CurrencyConverterViewModel {
 
   private var currentBalance: BehaviorRelay<AccountBalance>
   private var sourceCurrency: BehaviorRelay<Currency>
+  private var destinationCurrency: BehaviorRelay<Currency>
 
   private var configuration: [Section: Int] = [
     .balances: 1,
@@ -36,6 +37,7 @@ class CurrencyConverterViewModel {
 
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
+    destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
   }
 
   func numberOfSections() -> Int {
@@ -71,6 +73,10 @@ extension CurrencyConverterViewModel {
       .firstIndex(of: sourceCurrency.value) ?? 0
   }
   func selectSourceCurrency(atIndex index: Int) {
+    let currency = userAccount.currencyList()[index]
+    sourceCurrency.accept(currency)
+  }
+  func selectDestinationCurrency(atIndex index: Int) {
     let currency = userAccount.currencyList()[index]
     sourceCurrency.accept(currency)
   }

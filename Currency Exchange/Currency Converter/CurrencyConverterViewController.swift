@@ -10,6 +10,11 @@ import UIKit
 class CurrencyConverterViewController: UIViewController {
   typealias Section = CurrencyConverterViewModel.Section
 
+  enum CurrencySelectionType {
+    case source
+    case destination
+  }
+
   lazy var tableView: UITableView = {
     let tableView = UITableView(frame: .zero, style: .plain)
     tableView.separatorStyle = .none
@@ -58,6 +63,7 @@ class CurrencyConverterViewController: UIViewController {
   }()
 
   private var currencyPickerViewBottomConstraint: NSLayoutConstraint?
+  private var currencySelectionType = CurrencySelectionType.source
 
   var viewModel: CurrencyConverterViewModel
 
@@ -197,12 +203,18 @@ extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDat
   }
 
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    viewModel.selectSourceCurrency(atIndex: row)
+    switch currencySelectionType {
+    case .source:
+      viewModel.selectSourceCurrency(atIndex: row)
+    case .destination:
+      break
+    }
   }
 }
 
 extension CurrencyConverterViewController: SourceCellDelegate {
   func didTapCurrencyChange(_ cell: SourceCell) {
+    currencySelectionType = .source
     let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
     pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
     setPickerVisible(true)
@@ -211,6 +223,7 @@ extension CurrencyConverterViewController: SourceCellDelegate {
 
 extension CurrencyConverterViewController: DestinationCellDelegate {
   func didTapCurrencyChange(_ cell: DestinationCell) {
+    currencySelectionType = .destination
     let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
     pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
     setPickerVisible(true)
