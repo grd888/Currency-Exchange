@@ -38,20 +38,4 @@ final class SourceCellViewModelTests: XCTestCase {
       .disposed(by: disposeBag)
     wait(for: [exp], timeout: 1.0)
   }
-
-  func test_setCurrency() {
-    let currencySubject = BehaviorRelay(value: Currency.JPY)
-    let sut = SourceCellViewModel(sourceCurrencySubject: currencySubject)
-    let exp = expectation(description: "Waiting for observable...")
-    // swiftlint:disable:next trailing_closure
-    sut.sourceCurrencyObservable
-      .skip(1)
-      .subscribe(onNext: { currency in
-        XCTAssertEqual(currency, "USD ")
-        exp.fulfill()
-      })
-      .disposed(by: disposeBag)
-    sut.setCurrency(Currency.USD)
-    wait(for: [exp], timeout: 1.0)
-  }
 }

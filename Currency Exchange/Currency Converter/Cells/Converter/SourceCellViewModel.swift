@@ -13,14 +13,9 @@ struct SourceCellViewModel {
   var sourceCurrencyObservable: Observable<String> {
     return sourceCurrencySubject.map { $0.toString() + " " }
   }
-
   private var sourceCurrencySubject: BehaviorRelay<Currency>
 
   init(sourceCurrencySubject: BehaviorRelay<Currency>) {
     self.sourceCurrencySubject = sourceCurrencySubject
-  }
-
-  func setCurrency(_ currency: Currency) {
-    sourceCurrencySubject.accept(currency)
   }
 }
