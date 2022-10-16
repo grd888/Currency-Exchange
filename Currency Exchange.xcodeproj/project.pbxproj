@@ -35,6 +35,8 @@
 		4DE6071A28FB606300D2F29D /* DestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE6071928FB606300D2F29D /* DestinationCell.xib */; };
 		4DE6071C28FB61E900D2F29D /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE6071B28FB61E900D2F29D /* ButtonCell.xib */; };
 		4DE6071E28FBFAB000D2F29D /* DestinationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071D28FBFAB000D2F29D /* DestinationCellViewModel.swift */; };
+		4DE6072028FC0E7000D2F29D /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6071F28FC0E7000D2F29D /* CurrencyFormatterTests.swift */; };
+		4DE6072228FC14E200D2F29D /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6072128FC14E200D2F29D /* CurrencyFormatter.swift */; };
 		DCFB0AE5316CB972EE6A2CF9 /* Pods_Currency_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		4DE6071928FB606300D2F29D /* DestinationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationCell.xib; sourceTree = "<group>"; };
 		4DE6071B28FB61E900D2F29D /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		4DE6071D28FBFAB000D2F29D /* DestinationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCellViewModel.swift; sourceTree = "<group>"; };
+		4DE6071F28FC0E7000D2F29D /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
+		4DE6072128FC14E200D2F29D /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		6049AAB556884E702F9AF62C /* Pods_Currency_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952325AB177D9BB683F991B2 /* Pods-Currency Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Exchange.release.xcconfig"; path = "Target Support Files/Pods-Currency Exchange/Pods-Currency Exchange.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFAD2BAB7B2DF0CC9EFD1 /* Pods_Currency_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +190,7 @@
 				4D73797528F829B000DBDE7F /* Cells */,
 				4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */,
 				4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */,
+				4DE6072128FC14E200D2F29D /* CurrencyFormatter.swift */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				4DE6070228FA977E00D2F29D /* Cells */,
 				4DE606FE28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift */,
 				4DE606F828FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift */,
+				4DE6071F28FC0E7000D2F29D /* CurrencyFormatterTests.swift */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 				4DE6070528FA97B600D2F29D /* BalancesCellViewModel.swift in Sources */,
 				4DE6070F28FAB9B100D2F29D /* SourceCell.swift in Sources */,
 				4D73797728F829C800DBDE7F /* ButtonCell.swift in Sources */,
+				4DE6072228FC14E200D2F29D /* CurrencyFormatter.swift in Sources */,
 				4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */,
 				4DE606FB28FA657900D2F29D /* CurrencyConverterViewModel.swift in Sources */,
 			);
@@ -511,6 +518,7 @@
 				4DE6070728FA97C500D2F29D /* BalancesCellViewModelTests.swift in Sources */,
 				4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */,
 				4DE6070A28FA990F00D2F29D /* UserAccount.swift in Sources */,
+				4DE6072028FC0E7000D2F29D /* CurrencyFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
