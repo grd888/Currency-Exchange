@@ -27,30 +27,34 @@ class CurrencyConverterViewController: UIViewController {
     return tableView
   }()
 
-  lazy var currencyPickerView: UIView = {
+  lazy var pickerContainerView: UIView = {
     let view = UIView()
+    view.addSubview(pickerView)
+    NSLayoutConstraint.activate([
+      pickerView.topAnchor.constraint(equalTo: view.topAnchor),
+      pickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      pickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      pickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+    view.addSubview(toolbar)
+    return view
+  }()
+
+  lazy var pickerView: UIPickerView = {
     let picker = UIPickerView()
     picker.translatesAutoresizingMaskIntoConstraints = false
     picker.dataSource = self
     picker.delegate = self
-    view.addSubview(picker)
-    let toolbar = UIToolbar()
-    toolbar.translatesAutoresizingMaskIntoConstraints = false
+    return picker
+  }()
+
+  lazy var toolbar: UIToolbar = {
+    let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+    toolbar.sizeToFit()
+    let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done))
-    toolbar.setItems([button], animated: false)
-    view.addSubview(toolbar)
-    NSLayoutConstraint.activate([
-      toolbar.topAnchor.constraint(equalTo: view.topAnchor),
-      toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      toolbar.heightAnchor.constraint(equalToConstant: 36),
-      picker.topAnchor.constraint(equalTo: view.topAnchor),
-      picker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      picker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      picker.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      picker.heightAnchor.constraint(equalToConstant: 180)
-    ])
-    return view
+    toolbar.setItems([spacer, button], animated: false)
+    return toolbar
   }()
 
   private var currencyPickerViewBottomConstraint: NSLayoutConstraint?
@@ -91,13 +95,17 @@ class CurrencyConverterViewController: UIViewController {
   }
 
   private func setupPickerView() {
-    view.addSubview(currencyPickerView)
-    currencyPickerView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(pickerContainerView)
+    pickerContainerView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      currencyPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      currencyPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      pickerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      pickerContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     ])
-    currencyPickerViewBottomConstraint = currencyPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    currencyPickerViewBottomConstraint =
+      pickerContainerView.bottomAnchor.constraint(
+        equalTo: view.bottomAnchor,
+        constant: 216
+      )
     currencyPickerViewBottomConstraint?.isActive = true
   }
 
@@ -108,6 +116,7 @@ class CurrencyConverterViewController: UIViewController {
         // swiftlint:disable:next force_cast
         for: indexPath) as! SourceCell
       cell.configure(with: viewModel.getSourceCellViewModel())
+      cell.delegate = self
       return cell
     }
     let cell = tableView.dequeueReusableCell(
@@ -121,7 +130,7 @@ class CurrencyConverterViewController: UIViewController {
     guard let currencyPickerViewBottomConstraint = currencyPickerViewBottomConstraint else {
       return
     }
-    currencyPickerViewBottomConstraint.constant = show ? 0 : currencyPickerView.frame.height
+    currencyPickerViewBottomConstraint.constant = show ? 0 : pickerContainerView.frame.height
     UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
       self.view.layoutIfNeeded()
     }
@@ -175,14 +184,26 @@ extension CurrencyConverterViewController: UITableViewDataSource {
 
 extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    1
+    return 1
   }
 
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    3
+    return viewModel.numberOfCurrencies()
   }
 
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return "Row \(component)"
+    return viewModel.currencyName(forIndex: row)
+  }
+
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    viewModel.selectSourceCurrency(atIndex: row)
+  }
+}
+
+extension CurrencyConverterViewController: SourceCellDelegate {
+  func didTapCurrencyChange(_ cell: SourceCell) {
+    let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
+    pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
+    setPickerVisible(true)
   }
 }

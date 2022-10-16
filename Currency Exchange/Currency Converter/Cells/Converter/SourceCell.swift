@@ -9,9 +9,14 @@ import RxSwift
 import RxCocoa
 import UIKit
 
+protocol SourceCellDelegate: AnyObject {
+  func didTapCurrencyChange(_ cell: SourceCell)
+}
 class SourceCell: UITableViewCell {
   @IBOutlet weak var currencyButton: UIButton!
   @IBOutlet weak var valueTextField: UITextField!
+
+  weak var delegate: SourceCellDelegate?
 
   private var viewModel: SourceCellViewModel?
   private var disposeBag = DisposeBag()
@@ -21,6 +26,10 @@ class SourceCell: UITableViewCell {
     viewModel.sourceCurrencyObservable
       .bind(to: currencyButton.rx.title(for: .normal))
       .disposed(by: disposeBag)
+  }
+
+  @IBAction func buttonTapped(_ sender: Any) {
+    delegate?.didTapCurrencyChange(self)
   }
 
   override func prepareForReuse() {

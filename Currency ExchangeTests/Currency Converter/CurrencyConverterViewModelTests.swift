@@ -81,6 +81,20 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     wait(for: [exp], timeout: 1.0)
   }
 
+  func test_selectSourceCurrency_setsCurrentSourceCurrency() {
+    let account = UserAccount(initialBalance: [
+      .EUR: 100000,
+      .USD: 2000,
+      .JPY: 30000
+    ])
+    let sut = makeSUT(account)
+    sut.selectSourceCurrency(atIndex: 1)
+    XCTAssertEqual(sut.currentSourceCurrencyIndex(), 1)
+    sut.selectSourceCurrency(atIndex: 2)
+    XCTAssertEqual(sut.currentSourceCurrencyIndex(), 2)
+    sut.selectSourceCurrency(atIndex: 0)
+    XCTAssertEqual(sut.currentSourceCurrencyIndex(), 0)
+  }
   // MARK: Helpers
 
   private func makeSUT(_ account: UserAccount? = nil) -> CurrencyConverterViewModel {

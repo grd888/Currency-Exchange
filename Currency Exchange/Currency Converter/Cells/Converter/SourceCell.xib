@@ -41,6 +41,9 @@
                             <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCallout"/>
                         </buttonConfiguration>
+                        <connections>
+                            <action selector="buttonTapped:" destination="6cP-Lb-6Un" eventType="touchUpInside" id="Jlp-od-d1c"/>
+                        </connections>
                     </button>
                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100.00" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-th-VEC">
                         <rect key="frame" x="114.33333333333333" y="23" width="182.33333333333337" height="34"/>

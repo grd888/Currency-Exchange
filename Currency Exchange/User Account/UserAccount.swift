@@ -18,14 +18,17 @@ class UserAccount {
     }
   }
 
-  func sourceCurrency() -> Currency {
+  func defaultSellCurrency() -> Currency {
     var source: Currency?
-    print(balance.keys.sorted())
     for currency in balance.keys.sorted() where balance[currency] ?? 0 > 0 {
       source = currency
       break
     }
     return source ?? Currency.allCases[0]
+  }
+
+  func currencyList() -> [Currency] {
+    return balance.keys.sorted()
   }
 
   private func defaultBalance() -> AccountBalance {

@@ -35,7 +35,7 @@ class CurrencyConverterViewModel {
     self.userAccount = userAccount
 
     currentBalance = BehaviorRelay(value: userAccount.balance)
-    sourceCurrency = BehaviorRelay(value: userAccount.sourceCurrency())
+    sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
   }
 
   func numberOfSections() -> Int {
@@ -55,5 +55,23 @@ class CurrencyConverterViewModel {
 
   func getSourceCellViewModel() -> SourceCellViewModel {
     return SourceCellViewModel(sourceCurrencySubject: sourceCurrency)
+  }
+}
+
+// MARK: - PickerView data
+extension CurrencyConverterViewModel {
+  func numberOfCurrencies() -> Int {
+    return userAccount.currencyList().count
+  }
+  func currencyName(forIndex index: Int) -> String {
+    return userAccount.currencyList()[index].toString()
+  }
+  func currentSourceCurrencyIndex() -> Int {
+    return userAccount.currencyList()
+      .firstIndex(of: sourceCurrency.value) ?? 0
+  }
+  func selectSourceCurrency(atIndex index: Int) {
+    let currency = userAccount.currencyList()[index]
+    sourceCurrency.accept(currency)
   }
 }

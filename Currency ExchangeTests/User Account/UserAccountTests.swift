@@ -39,28 +39,35 @@ final class UserAccountTests: XCTestCase {
     let balance: AccountBalance = [.USD: 0, .JPY: 10000, .EUR: 1000]
     let sut = makeUserAccount(balance: balance)
 
-    XCTAssertEqual(sut.sourceCurrency(), .EUR)
+    XCTAssertEqual(sut.defaultSellCurrency(), .EUR)
   }
 
   func test_sourceCurrency_withPrimaryCurrencyZeroBalance() {
     let balance: AccountBalance = [.USD: 0, .JPY: 10000, .EUR: 0]
     let sut = makeUserAccount(balance: balance)
 
-    XCTAssertEqual(sut.sourceCurrency(), .JPY)
+    XCTAssertEqual(sut.defaultSellCurrency(), .JPY)
   }
 
   func test_sourceCurrency_withPrimaryCurrencyZeroBalanceUSDNonZero() {
     let balance: AccountBalance = [.USD: 100, .JPY: 10000, .EUR: 0]
     let sut = makeUserAccount(balance: balance)
 
-    XCTAssertEqual(sut.sourceCurrency(), .USD)
+    XCTAssertEqual(sut.defaultSellCurrency(), .USD)
   }
 
   func test_sourceCurrency_withAllBalancesZero() {
     let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 0]
     let sut = makeUserAccount(balance: balance)
 
-    XCTAssertEqual(sut.sourceCurrency(), .EUR)
+    XCTAssertEqual(sut.defaultSellCurrency(), .EUR)
+  }
+
+  func test_currencyList_returnsUserCurrenciesInOrder() {
+    let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 0]
+    let sut = makeUserAccount(balance: balance)
+
+    XCTAssertEqual(sut.currencyList(), [.EUR, .USD, .JPY])
   }
 
   // MARK: Helpers
