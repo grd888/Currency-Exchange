@@ -53,7 +53,7 @@ final class SourceCellViewModelTests: XCTestCase {
     // swiftlint:disable:next trailing_closure
     sut.sourceCurrencyAmountObservable
       .subscribe(onNext: { amount in
-        XCTAssertEqual(amount, "0.0")
+        XCTAssertEqual(amount, "0")
         exp.fulfill()
       })
       .disposed(by: disposeBag)

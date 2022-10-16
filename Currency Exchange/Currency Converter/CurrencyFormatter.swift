@@ -11,7 +11,11 @@ enum FormatError: Error {
   case invalidAmount
 }
 
-struct CurrencyFormatter {
+protocol CurrencyFormatting {
+  func format(amount: Double, in currency: Currency) throws -> String
+}
+
+struct CurrencyFormatter: CurrencyFormatting {
   func format(amount: Double, in currency: Currency) throws -> String {
     if currency.hasDecimal() {
       return String(format: "%0.2f", amount)

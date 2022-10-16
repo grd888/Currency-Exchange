@@ -15,17 +15,23 @@ struct DestinationCellViewModel {
   }
   var destinationCurrencyAmountObservable: Observable<String?> {
     return destinationCurrencyAmountSubject
-      .map { String($0) }
+      .map { try? formatter.format(
+        amount: $0,
+        in: destinationCurrencySubject.value)
+      }
       .asObservable()
   }
   private var destinationCurrencySubject: BehaviorRelay<Currency>
   private var destinationCurrencyAmountSubject: BehaviorRelay<Double>
+  private var formatter: CurrencyFormatting
 
   init(
     destinationCurrencySubject: BehaviorRelay<Currency>,
-    destinationCurrencyAmountSubject: BehaviorRelay<Double>
+    destinationCurrencyAmountSubject: BehaviorRelay<Double>,
+    formatter: CurrencyFormatting = CurrencyFormatter()
   ) {
     self.destinationCurrencySubject = destinationCurrencySubject
     self.destinationCurrencyAmountSubject = destinationCurrencyAmountSubject
+    self.formatter = formatter
   }
 }
