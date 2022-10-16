@@ -41,6 +41,9 @@
                             <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCallout"/>
                         </buttonConfiguration>
+                        <connections>
+                            <action selector="buttonTapped:" destination="5Zj-D2-146" eventType="touchUpInside" id="tAc-Re-euB"/>
+                        </connections>
                     </button>
                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-Qv-s6E">
                         <rect key="frame" x="80" y="79" width="310" height="1"/>

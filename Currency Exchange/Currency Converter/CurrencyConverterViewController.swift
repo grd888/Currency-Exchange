@@ -109,23 +109,6 @@ class CurrencyConverterViewController: UIViewController {
     currencyPickerViewBottomConstraint?.isActive = true
   }
 
-  func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.row == 0 {
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: SourceCell.reuseIdentifier,
-        // swiftlint:disable:next force_cast
-        for: indexPath) as! SourceCell
-      cell.configure(with: viewModel.getSourceCellViewModel())
-      cell.delegate = self
-      return cell
-    }
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: DestinationCell.reuseIdentifier,
-      // swiftlint:disable:next force_cast
-      for: indexPath) as! DestinationCell
-    return cell
-  }
-
   private func setPickerVisible(_ show: Bool) {
     guard let currencyPickerViewBottomConstraint = currencyPickerViewBottomConstraint else {
       return
@@ -180,6 +163,24 @@ extension CurrencyConverterViewController: UITableViewDataSource {
       return nil
     }
   }
+
+  private func currencyCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    if indexPath.row == 0 {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: SourceCell.reuseIdentifier,
+        // swiftlint:disable:next force_cast
+        for: indexPath) as! SourceCell
+      cell.configure(with: viewModel.getSourceCellViewModel())
+      cell.delegate = self
+      return cell
+    }
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: DestinationCell.reuseIdentifier,
+      // swiftlint:disable:next force_cast
+      for: indexPath) as! DestinationCell
+    cell.delegate = self
+    return cell
+  }
 }
 
 extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -202,6 +203,14 @@ extension CurrencyConverterViewController: UIPickerViewDelegate, UIPickerViewDat
 
 extension CurrencyConverterViewController: SourceCellDelegate {
   func didTapCurrencyChange(_ cell: SourceCell) {
+    let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
+    pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
+    setPickerVisible(true)
+  }
+}
+
+extension CurrencyConverterViewController: DestinationCellDelegate {
+  func didTapCurrencyChange(_ cell: DestinationCell) {
     let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
     pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
     setPickerVisible(true)
