@@ -96,10 +96,10 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     XCTAssertEqual(sut.currentSourceCurrencyIndex(), 0)
   }
 
-  func test_init_sourceCurrencyValueIsZero() {
+  func test_init_sourceCurrencyValueIsNil() {
     let sut = makeSUT()
 
-    XCTAssertEqual(sut.sourceCurrencyAmount.value, 0)
+    XCTAssertNil(sut.sourceCurrencyAmount.value)
   }
 
   func test_init_destinationCurrencyValueIsZero() {

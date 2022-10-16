@@ -98,6 +98,7 @@ class CurrencyConverterViewController: UIViewController {
       tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
+    tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
   }
 
   private func setupPickerView() {
@@ -127,6 +128,10 @@ class CurrencyConverterViewController: UIViewController {
 
   @objc func done() {
     setPickerVisible(false)
+  }
+
+  @objc func dismissKeyboard() {
+    view.endEditing(true)
   }
 }
 
@@ -225,7 +230,7 @@ extension CurrencyConverterViewController: SourceCellDelegate {
 extension CurrencyConverterViewController: DestinationCellDelegate {
   func didTapCurrencyChange(_ cell: DestinationCell) {
     currencySelectionType = .destination
-    let currentCurrencyIndex = viewModel.currentSourceCurrencyIndex()
+    let currentCurrencyIndex = viewModel.currentDestinationCurrencyIndex()
     pickerView.selectRow(currentCurrencyIndex, inComponent: 0, animated: false)
     setPickerVisible(true)
   }

@@ -23,7 +23,7 @@ class CurrencyConverterViewModel {
   private(set) var currentBalance: BehaviorRelay<AccountBalance>
   private(set) var sourceCurrency: BehaviorRelay<Currency>
   private(set) var destinationCurrency: BehaviorRelay<Currency>
-  private(set) var sourceCurrencyAmount: BehaviorRelay<Double>
+  private(set) var sourceCurrencyAmount: BehaviorRelay<Double?>
   private(set) var destinationCurrencyAmount: BehaviorRelay<Double>
 
   private var configuration: [Section: Int] = [
@@ -40,7 +40,7 @@ class CurrencyConverterViewModel {
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
     destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
-    sourceCurrencyAmount = BehaviorRelay(value: 0)
+    sourceCurrencyAmount = BehaviorRelay(value: nil)
     destinationCurrencyAmount = BehaviorRelay(value: 0)
   }
 
@@ -85,6 +85,10 @@ extension CurrencyConverterViewModel {
   func currentSourceCurrencyIndex() -> Int {
     return userAccount.currencyList()
       .firstIndex(of: sourceCurrency.value) ?? 0
+  }
+  func currentDestinationCurrencyIndex() -> Int {
+    return userAccount.currencyList()
+      .firstIndex(of: destinationCurrency.value) ?? 0
   }
   func selectSourceCurrency(atIndex index: Int) {
     let currency = userAccount.currencyList()[index]

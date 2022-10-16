@@ -21,6 +21,13 @@ class SourceCell: UITableViewCell {
   private var viewModel: SourceCellViewModel?
   private var disposeBag = DisposeBag()
 
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    valueTextField.keyboardType = .decimalPad
+    valueTextField.clearButtonMode = .always
+    valueTextField.delegate = self
+  }
+
   func configure(with viewModel: SourceCellViewModel) {
     self.viewModel = viewModel
     viewModel.sourceCurrencyObservable
@@ -38,5 +45,14 @@ class SourceCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     disposeBag = DisposeBag()
+  }
+}
+
+extension SourceCell: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let inputText = textField.text ?? ""
+    guard let inputRange = Range(range, in: inputText) else { return false }
+    let updatedText = inputText.replacingCharacters(in: inputRange, with: string)
+    return viewModel?.validateInputAmount(updatedText) ?? false
   }
 }

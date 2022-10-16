@@ -26,7 +26,7 @@ final class SourceCellViewModelTests: XCTestCase {
 
   func test_sourceCurrencyObservable() {
     let currencySubject = BehaviorRelay(value: Currency.JPY)
-    let currencyAmountSubject = BehaviorRelay(value: 0.0)
+    let currencyAmountSubject = BehaviorRelay<Double?>(value: nil)
     let sut = SourceCellViewModel(
       sourceCurrencySubject: currencySubject,
       sourceCurrencyAmountSubject: currencyAmountSubject)
@@ -44,7 +44,7 @@ final class SourceCellViewModelTests: XCTestCase {
 
   func test_sourceCurrencyAmountObservable() {
     let currencySubject = BehaviorRelay(value: Currency.JPY)
-    let currencyAmountSubject = BehaviorRelay(value: 0.0)
+    let currencyAmountSubject = BehaviorRelay<Double?>(value: nil)
     let sut = SourceCellViewModel(
       sourceCurrencySubject: currencySubject,
       sourceCurrencyAmountSubject: currencyAmountSubject)
@@ -53,7 +53,7 @@ final class SourceCellViewModelTests: XCTestCase {
     // swiftlint:disable:next trailing_closure
     sut.sourceCurrencyAmountObservable
       .subscribe(onNext: { amount in
-        XCTAssertEqual(amount, "0")
+        XCTAssertNil(amount)
         exp.fulfill()
       })
       .disposed(by: disposeBag)

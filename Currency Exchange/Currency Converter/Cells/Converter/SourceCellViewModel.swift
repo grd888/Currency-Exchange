@@ -15,23 +15,30 @@ struct SourceCellViewModel {
   }
   var sourceCurrencyAmountObservable: Observable<String?> {
     return sourceCurrencyAmountSubject
-      .map { try? formatter.format(
-        amount: $0,
-        in: sourceCurrencySubject.value)
+      .map {
+        if let amount = $0 {
+          return try? formatter.format(amount: amount, in: sourceCurrencySubject.value)
+        } else {
+          return nil
+        }
       }
       .asObservable()
   }
   private var sourceCurrencySubject: BehaviorRelay<Currency>
-  private var sourceCurrencyAmountSubject: BehaviorRelay<Double>
+  private var sourceCurrencyAmountSubject: BehaviorRelay<Double?>
   private var formatter: CurrencyFormatting
 
   init(
     sourceCurrencySubject: BehaviorRelay<Currency>,
-    sourceCurrencyAmountSubject: BehaviorRelay<Double>,
+    sourceCurrencyAmountSubject: BehaviorRelay<Double?>,
     formatter: CurrencyFormatting = CurrencyFormatter()
   ) {
     self.sourceCurrencySubject = sourceCurrencySubject
     self.sourceCurrencyAmountSubject = sourceCurrencyAmountSubject
     self.formatter = formatter
+  }
+
+  func validateInputAmount(_ stringAmount: String) -> Bool {
+    return true
   }
 }
