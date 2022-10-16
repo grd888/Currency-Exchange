@@ -26,13 +26,34 @@ final class SourceCellViewModelTests: XCTestCase {
 
   func test_sourceCurrencyObservable() {
     let currencySubject = BehaviorRelay(value: Currency.JPY)
-    let sut = SourceCellViewModel(sourceCurrencySubject: currencySubject)
+    let currencyAmountSubject = BehaviorRelay(value: 0.0)
+    let sut = SourceCellViewModel(
+      sourceCurrencySubject: currencySubject,
+      sourceCurrencyAmountSubject: currencyAmountSubject)
     let exp = expectation(description: "Waiting for observable...")
 
     // swiftlint:disable:next trailing_closure
     sut.sourceCurrencyObservable
       .subscribe(onNext: { currency in
         XCTAssertEqual(currency, "JPY ")
+        exp.fulfill()
+      })
+      .disposed(by: disposeBag)
+    wait(for: [exp], timeout: 1.0)
+  }
+
+  func test_sourceCurrencyAmountObservable() {
+    let currencySubject = BehaviorRelay(value: Currency.JPY)
+    let currencyAmountSubject = BehaviorRelay(value: 0.0)
+    let sut = SourceCellViewModel(
+      sourceCurrencySubject: currencySubject,
+      sourceCurrencyAmountSubject: currencyAmountSubject)
+    let exp = expectation(description: "Waiting for observable...")
+
+    // swiftlint:disable:next trailing_closure
+    sut.sourceCurrencyAmountObservable
+      .subscribe(onNext: { amount in
+        XCTAssertEqual(amount, "0.0")
         exp.fulfill()
       })
       .disposed(by: disposeBag)

@@ -24,6 +24,7 @@ class CurrencyConverterViewModel {
   private(set) var sourceCurrency: BehaviorRelay<Currency>
   private(set) var destinationCurrency: BehaviorRelay<Currency>
   private(set) var sourceCurrencyAmount: BehaviorRelay<Double>
+  private(set) var destinationCurrencyAmount: BehaviorRelay<Double>
 
   private var configuration: [Section: Int] = [
     .balances: 1,
@@ -40,6 +41,7 @@ class CurrencyConverterViewModel {
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
     destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
     sourceCurrencyAmount = BehaviorRelay(value: 0)
+    destinationCurrencyAmount = BehaviorRelay(value: 0)
   }
 
   func numberOfSections() -> Int {
@@ -58,11 +60,17 @@ class CurrencyConverterViewModel {
   }
 
   func getSourceCellViewModel() -> SourceCellViewModel {
-    return SourceCellViewModel(sourceCurrencySubject: sourceCurrency, sourceCurrencyAmountSubject: sourceCurrencyAmount)
+    return SourceCellViewModel(
+      sourceCurrencySubject: sourceCurrency,
+      sourceCurrencyAmountSubject: sourceCurrencyAmount
+    )
   }
 
   func getDestinationCellViewModel() -> DestinationCellViewModel {
-    return DestinationCellViewModel(destinationCurrencySubject: destinationCurrency)
+    return DestinationCellViewModel(
+      destinationCurrencySubject: destinationCurrency,
+      destinationCurrencyAmountSubject: destinationCurrencyAmount
+    )
   }
 }
 

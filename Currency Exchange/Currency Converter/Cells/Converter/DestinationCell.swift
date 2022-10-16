@@ -26,6 +26,9 @@ class DestinationCell: UITableViewCell {
     viewModel.destinationCurrencyObservable
       .bind(to: currencyButton.rx.title(for: .normal))
       .disposed(by: disposeBag)
+    viewModel.destinationCurrencyAmountObservable
+      .bind(to: valueLabel.rx.text)
+      .disposed(by: disposeBag)
   }
 
   @IBAction func buttonTapped(_ sender: Any) {

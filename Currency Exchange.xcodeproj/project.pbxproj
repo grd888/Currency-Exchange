@@ -163,8 +163,8 @@
 		4D73797528F829B000DBDE7F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4DE6070D28FAB97F00D2F29D /* Converter */,
 				4DE6070B28FAB8ED00D2F29D /* Balances */,
+				4DE6070D28FAB97F00D2F29D /* Converter */,
 				4D73797628F829C800DBDE7F /* ButtonCell.swift */,
 				4DE6071B28FB61E900D2F29D /* ButtonCell.xib */,
 			);
