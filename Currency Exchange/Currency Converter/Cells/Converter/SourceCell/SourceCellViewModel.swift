@@ -27,18 +27,21 @@ struct SourceCellViewModel {
   private var sourceCurrencySubject: BehaviorRelay<Currency>
   private var sourceCurrencyAmountSubject: BehaviorRelay<Double?>
   private var formatter: CurrencyFormatting
+  private var validator: InputTextValidator
 
   init(
     sourceCurrencySubject: BehaviorRelay<Currency>,
     sourceCurrencyAmountSubject: BehaviorRelay<Double?>,
-    formatter: CurrencyFormatting = CurrencyFormatter()
+    formatter: CurrencyFormatting = CurrencyFormatter(),
+    validator: InputTextValidator = InputAmountValidator()
   ) {
     self.sourceCurrencySubject = sourceCurrencySubject
     self.sourceCurrencyAmountSubject = sourceCurrencyAmountSubject
     self.formatter = formatter
+    self.validator = validator
   }
 
   func validateInputAmount(_ stringAmount: String) -> Bool {
-    return true
+    return validator.validateInput(stringAmount)
   }
 }
