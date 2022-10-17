@@ -13,6 +13,9 @@ class CurrencyConverterViewModel {
   var currentBalanceObservable: Observable<AccountBalance> {
     return currentBalance.asObservable()
   }
+  var enableSubmitObservable: Observable<Bool> {
+    return enableSubmitSubject.asObservable()
+  }
 
   enum Section: Int, CaseIterable {
     case balances
@@ -23,8 +26,11 @@ class CurrencyConverterViewModel {
   private(set) var currentBalance: BehaviorRelay<AccountBalance>
   private(set) var sourceCurrency: BehaviorRelay<Currency>
   private(set) var destinationCurrency: BehaviorRelay<Currency>
-  private(set) var sourceCurrencyAmount: BehaviorRelay<Double?>
-  private(set) var destinationCurrencyAmount: BehaviorRelay<Double>
+  private(set) var sourceCurrencyAmount = BehaviorRelay<Double?>(value: nil)
+  private(set) var destinationCurrencyAmount = BehaviorRelay<Double>(value: 0)
+  private(set) var enableSubmitSubject = BehaviorRelay<Bool>(value: false)
+  private(set) var buttonTapSubject = PublishSubject<Void>()
+  private var disposeBag = DisposeBag()
 
   private var configuration: [Section: Int] = [
     .balances: 1,
@@ -40,8 +46,8 @@ class CurrencyConverterViewModel {
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
     destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
-    sourceCurrencyAmount = BehaviorRelay(value: nil)
-    destinationCurrencyAmount = BehaviorRelay(value: 0)
+
+    setupButtonObservers()
   }
 
   func numberOfSections() -> Int {
@@ -71,6 +77,36 @@ class CurrencyConverterViewModel {
       destinationCurrencySubject: destinationCurrency,
       destinationCurrencyAmountSubject: destinationCurrencyAmount
     )
+  }
+
+  func getButtonCellViewModel() -> ButtonCellViewModel {
+    return ButtonCellViewModel(enableButtonObservable: enableSubmitObservable, buttonSubject: buttonTapSubject)
+  }
+
+  func setupButtonObservers() {
+    Observable.combineLatest(
+      currentBalance.asObservable(),
+      sourceCurrencyAmount.asObservable(),
+      sourceCurrency.asObservable(),
+      destinationCurrency.asObservable()
+    )
+    .subscribe { balances, amount, src, dst in
+      let currencyBalance = balances[src] ?? 0
+      let inputAmount = amount ?? 0
+
+      let valid = currencyBalance.doubleValue >= inputAmount
+        && inputAmount > 0
+        && src != dst
+
+      self.enableSubmitSubject.accept(valid)
+    }
+    .disposed(by: disposeBag)
+
+    // swiftlint:disable:next trailing_closure
+    buttonTapSubject.subscribe(onNext: {
+      print("Tap")
+    })
+    .disposed(by: disposeBag)
   }
 }
 

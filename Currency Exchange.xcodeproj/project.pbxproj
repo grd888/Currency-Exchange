@@ -10,6 +10,8 @@
 		1CEF99AA41386CD70CAA45F5 /* Pods_Currency_ExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCBFAD2BAB7B2DF0CC9EFD1 /* Pods_Currency_ExchangeTests.framework */; };
 		4D6E788A28FD578700F11C6A /* InputTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788928FD578700F11C6A /* InputTextValidator.swift */; };
 		4D6E788C28FD57A500F11C6A /* InputAmountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */; };
+		4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */; };
+		4D6E789228FD63B600F11C6A /* ButtonCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E789128FD63B600F11C6A /* ButtonCellViewModelTests.swift */; };
 		4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */; };
 		4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */; };
 		4D73794B28F7E1B000DBDE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D73794A28F7E1B000DBDE7F /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		45EE31ABE4C717E37192DD87 /* Pods-Currency ExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency ExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-Currency ExchangeTests/Pods-Currency ExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D6E788928FD578700F11C6A /* InputTextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextValidator.swift; sourceTree = "<group>"; };
 		4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountValidator.swift; sourceTree = "<group>"; };
+		4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellViewModel.swift; sourceTree = "<group>"; };
+		4D6E789128FD63B600F11C6A /* ButtonCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellViewModelTests.swift; sourceTree = "<group>"; };
 		4D73793E28F7E1AF00DBDE7F /* Currency Exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D73794128F7E1AF00DBDE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D73794328F7E1AF00DBDE7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,24 @@
 			path = InputTextValidator;
 			sourceTree = "<group>";
 		};
+		4D6E788D28FD633900F11C6A /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+				4D73797628F829C800DBDE7F /* ButtonCell.swift */,
+				4DE6071B28FB61E900D2F29D /* ButtonCell.xib */,
+				4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */,
+			);
+			path = Submit;
+			sourceTree = "<group>";
+		};
+		4D6E788E28FD634A00F11C6A /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+				4D6E789128FD63B600F11C6A /* ButtonCellViewModelTests.swift */,
+			);
+			path = Submit;
+			sourceTree = "<group>";
+		};
 		4D73793528F7E1AF00DBDE7F = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +206,7 @@
 			children = (
 				4DE6070B28FAB8ED00D2F29D /* Balances */,
 				4DE6070D28FAB97F00D2F29D /* Converter */,
-				4D73797628F829C800DBDE7F /* ButtonCell.swift */,
-				4DE6071B28FB61E900D2F29D /* ButtonCell.xib */,
+				4D6E788D28FD633900F11C6A /* Submit */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -254,6 +275,7 @@
 			children = (
 				4DE6070C28FAB90A00D2F29D /* Balances */,
 				4DE6071228FABF7500D2F29D /* Converter */,
+				4D6E788E28FD634A00F11C6A /* Submit */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -529,6 +551,7 @@
 				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4DE6071128FAB9D200D2F29D /* DestinationCell.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
+				4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */,
 				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
 				4DE6071E28FBFAB000D2F29D /* DestinationCellViewModel.swift in Sources */,
 				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
@@ -549,6 +572,7 @@
 			files = (
 				4DE606FF28FA77D500D2F29D /* CurrencyConverterViewControllerTests.swift in Sources */,
 				4DE6071428FABF8D00D2F29D /* SourceCellViewModelTests.swift in Sources */,
+				4D6E789228FD63B600F11C6A /* ButtonCellViewModelTests.swift in Sources */,
 				4DE606F928FA64AB00D2F29D /* CurrencyConverterViewModelTests.swift in Sources */,
 				4DE6070728FA97C500D2F29D /* BalancesCellViewModelTests.swift in Sources */,
 				4DE606F028FA49D200D2F29D /* UserAccountTests.swift in Sources */,

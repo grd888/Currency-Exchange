@@ -48,4 +48,13 @@ extension AccountBalance {
   func numberOfCurrencies() -> Int {
     return self.count
   }
+  subscript(index: Currency) -> Decimal {
+    return self[index] ?? 0
+  }
+}
+
+extension Decimal {
+  var doubleValue: Double {
+    return Double(truncating: NSDecimalNumber(decimal: self))
+  }
 }

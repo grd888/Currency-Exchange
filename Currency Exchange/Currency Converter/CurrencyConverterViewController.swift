@@ -159,7 +159,12 @@ extension CurrencyConverterViewController: UITableViewDataSource {
     case .converter:
       return currencyCell(tableView, indexPath: indexPath)
     case .submit:
-      let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.reuseIdentifier, for: indexPath)
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: ButtonCell.reuseIdentifier,
+        // swiftlint:disable:next force_cast
+        for: indexPath) as! ButtonCell
+      cell.configure(with: viewModel.getButtonCellViewModel())
+
       return cell
     }
   }

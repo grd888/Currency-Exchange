@@ -107,6 +107,41 @@ final class CurrencyConverterViewModelTests: XCTestCase {
 
     XCTAssertEqual(sut.destinationCurrencyAmount.value, 0)
   }
+
+  func test_init_submitButtonIsDisabled() {
+    let sut = makeSUT()
+    let exp = expectation(description: "Waiting")
+    // swiftlint:disable:next trailing_closure
+    sut.enableSubmitObservable
+      .subscribe(onNext: { enabled in
+        XCTAssertFalse(enabled)
+        exp.fulfill()
+      })
+      .disposed(by: disposeBag)
+
+    wait(for: [exp], timeout: 1.0)
+  }
+
+  func test_sameSourceAndDestinationCurrency_disablesSubmit() {
+    let sut = makeSUT()
+    sut.selectSourceCurrency(atIndex: 0)
+    sut.selectDestinationCurrency(atIndex: 0)
+
+    XCTAssertFalse(sut.enableSubmitSubject.value)
+  }
+  func test_differentSourceAndDestinationCurrency_positiveBalance_enablesSubmit() {
+    let account = UserAccount(initialBalance: [
+      .EUR: 100000,
+      .USD: 2000,
+      .JPY: 30000
+    ])
+    let sut = makeSUT(account)
+    sut.sourceCurrencyAmount.accept(100)
+    sut.selectSourceCurrency(atIndex: 0)
+    sut.selectDestinationCurrency(atIndex: 1)
+
+    XCTAssertTrue(sut.enableSubmitSubject.value)
+  }
   // MARK: Helpers
 
   private func makeSUT(_ account: UserAccount? = nil) -> CurrencyConverterViewModel {
