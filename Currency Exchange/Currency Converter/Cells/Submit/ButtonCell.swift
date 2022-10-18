@@ -24,11 +24,18 @@ class ButtonCell: UITableViewCell {
     viewModel.enableButtonObservable
       .bind(to: button.rx.isEnabled)
       .disposed(by: disposeBag)
+    viewModel.enableButtonObservable
+      .subscribe(onNext: updateButtonAppearance)
+      .disposed(by: disposeBag)
     button.rx.tap
       .bind(to: viewModel.buttonTapSubject)
       .disposed(by: disposeBag)
   }
 
+  private func updateButtonAppearance(_ enabled: Bool) {
+    let backgroundColor = enabled ? UIColor(named: "ColorGradientBlueLeft") : UIColor(named: "ColorDisabled")
+    button.backgroundColor = backgroundColor
+  }
   override func prepareForReuse() {
     super.prepareForReuse()
     disposeBag = DisposeBag()
