@@ -12,6 +12,7 @@
 		4D680F9328FECC8E00674195 /* FixedFiveCommission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9228FECC8E00674195 /* FixedFiveCommission.swift */; };
 		4D680F9528FECD1200674195 /* FixedAfterFiveCommissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */; };
 		4D680F9728FF521F00674195 /* UserAccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9628FF521F00674195 /* UserAccountError.swift */; };
+		4D680F9A28FF638D00674195 /* ConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9928FF638D00674195 /* ConverterProtocol.swift */; };
 		4D6E788A28FD578700F11C6A /* InputTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788928FD578700F11C6A /* InputTextValidator.swift */; };
 		4D6E788C28FD57A500F11C6A /* InputAmountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */; };
 		4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */; };
@@ -66,6 +67,7 @@
 		4D680F9228FECC8E00674195 /* FixedFiveCommission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedFiveCommission.swift; sourceTree = "<group>"; };
 		4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAfterFiveCommissionTests.swift; sourceTree = "<group>"; };
 		4D680F9628FF521F00674195 /* UserAccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountError.swift; sourceTree = "<group>"; };
+		4D680F9928FF638D00674195 /* ConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterProtocol.swift; sourceTree = "<group>"; };
 		4D6E788928FD578700F11C6A /* InputTextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextValidator.swift; sourceTree = "<group>"; };
 		4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountValidator.swift; sourceTree = "<group>"; };
 		4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 				45EE31ABE4C717E37192DD87 /* Pods-Currency ExchangeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4D680F9828FF62FE00674195 /* ConverterProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				4D680F9928FF638D00674195 /* ConverterProtocol.swift */,
+			);
+			path = ConverterProtocol;
 			sourceTree = "<group>";
 		};
 		4D6E788828FD576100F11C6A /* InputTextValidator */ = {
@@ -231,6 +241,7 @@
 		4DE606ED28FA43EB00D2F29D /* Currency Converter */ = {
 			isa = PBXGroup;
 			children = (
+				4D680F9828FF62FE00674195 /* ConverterProtocol */,
 				4D73797528F829B000DBDE7F /* Cells */,
 				4D73797128F7E21800DBDE7F /* CurrencyConverterViewController.swift */,
 				4DE606FA28FA657900D2F29D /* CurrencyConverterViewModel.swift */,
@@ -578,6 +589,7 @@
 				4D73794428F7E1AF00DBDE7F /* SceneDelegate.swift in Sources */,
 				4DE606FB28FA657900D2F29D /* CurrencyConverterViewModel.swift in Sources */,
 				4D680F9328FECC8E00674195 /* FixedFiveCommission.swift in Sources */,
+				4D680F9A28FF638D00674195 /* ConverterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
