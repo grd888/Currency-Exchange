@@ -8,14 +8,20 @@
 import Foundation
 
 struct FixedFiveCommission: CommissionCalculator {
-  let rate: Double = 0.007
+  let rate: Double
+  let freeTransactionLimit: Int
+
+  init(rate: Double = 0.007, freeTransactionsLimit: Int = 5) {
+    self.rate = rate
+    self.freeTransactionLimit = freeTransactionsLimit
+  }
 
   func computeCommission(
     forCurrency currency: Currency,
     amount: Double,
     transactionCount: Int
   ) -> Double {
-    if transactionCount <= 5 {
+    if transactionCount <= freeTransactionLimit {
       return 0
     }
     if currency.hasDecimal() {

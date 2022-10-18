@@ -129,11 +129,11 @@ final class CurrencyConverterViewModelTests: XCTestCase {
 
     XCTAssertFalse(sut.enableSubmitSubject.value)
   }
-  func test_differentSourceAndDestinationCurrency_positiveBalance_enablesSubmit() {
+  func test_differentSourceAndDestinationCurrency_firstTransaction_positiveBalance_enablesSubmit() {
     let account = UserAccount(initialBalance: [
-      .EUR: 100000,
-      .USD: 2000,
-      .JPY: 30000
+      .EUR: 100,
+      .USD: 0,
+      .JPY: 0
     ])
     let sut = makeSUT(account)
     sut.sourceCurrencyAmount.accept(100)
@@ -141,6 +141,30 @@ final class CurrencyConverterViewModelTests: XCTestCase {
     sut.selectDestinationCurrency(atIndex: 1)
 
     XCTAssertTrue(sut.enableSubmitSubject.value)
+  }
+  func test_differentSourceAndDestinationCurrency_sixthTransaction_negativeBalance_disablesSubmit() throws {
+    let account = UserAccount(initialBalance: [
+      .EUR: 100,
+      .USD: 0,
+      .JPY: 0
+    ])
+    let sut = makeSUT(account)
+    sut.updateUserAccount(
+      transaction: .sell(source: (.EUR, 10), receive: (.USD, 13)))
+    sut.updateUserAccount(
+      transaction: .sell(source: (.EUR, 10), receive: (.USD, 13)))
+    sut.updateUserAccount(
+      transaction: .sell(source: (.EUR, 10), receive: (.USD, 13)))
+    sut.updateUserAccount(
+      transaction: .sell(source: (.EUR, 10), receive: (.USD, 13)))
+    sut.updateUserAccount(
+      transaction: .sell(source: (.EUR, 10), receive: (.USD, 13)))
+
+    sut.sourceCurrencyAmount.accept(50)
+    sut.selectSourceCurrency(atIndex: 0)
+    sut.selectDestinationCurrency(atIndex: 1)
+
+    XCTAssertFalse(sut.enableSubmitSubject.value)
   }
   // MARK: Helpers
 

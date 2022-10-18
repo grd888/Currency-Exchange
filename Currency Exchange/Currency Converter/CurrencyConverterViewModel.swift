@@ -26,6 +26,7 @@ class CurrencyConverterViewModel {
   private(set) var currentBalance: BehaviorRelay<AccountBalance>
   private(set) var sourceCurrency: BehaviorRelay<Currency>
   private(set) var destinationCurrency: BehaviorRelay<Currency>
+  private(set) var commissionSubject = BehaviorRelay<Double>(value: 0)
   private(set) var sourceCurrencyAmount = BehaviorRelay<Double?>(value: nil)
   private(set) var destinationCurrencyAmount = BehaviorRelay<Double>(value: 0)
   private(set) var enableSubmitSubject = BehaviorRelay<Bool>(value: false)
@@ -39,9 +40,14 @@ class CurrencyConverterViewModel {
   ]
 
   private var userAccount: UserAccount
+  private var commissionCalculator: CommissionCalculator
 
-  init(userAccount: UserAccount = UserAccount()) {
+  init(
+    userAccount: UserAccount = UserAccount(),
+    commissionCalculator: CommissionCalculator = FixedFiveCommission()
+  ) {
     self.userAccount = userAccount
+    self.commissionCalculator = commissionCalculator
 
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
@@ -83,18 +89,27 @@ class CurrencyConverterViewModel {
     return ButtonCellViewModel(enableButtonObservable: enableSubmitObservable, buttonSubject: buttonTapSubject)
   }
 
+  func updateUserAccount(transaction: TransactionType) {
+    do {
+      currentBalance.accept(try userAccount.update(transaction: transaction))
+    } catch {
+      print("Did not update User account:", error)
+    }
+  }
+
   func setupButtonObservers() {
     Observable.combineLatest(
+      commissionSubject.asObservable(),
       currentBalance.asObservable(),
       sourceCurrencyAmount.asObservable(),
       sourceCurrency.asObservable(),
       destinationCurrency.asObservable()
     )
-    .subscribe { balances, amount, src, dst in
+    .subscribe { commission, balances, amount, src, dst in
       let currencyBalance = balances[src] ?? 0
       let inputAmount = amount ?? 0
 
-      let valid = currencyBalance.doubleValue >= inputAmount
+      let valid = currencyBalance.doubleValue >= inputAmount + commission
         && inputAmount > 0
         && src != dst
 
@@ -107,6 +122,20 @@ class CurrencyConverterViewModel {
       print("Tap")
     })
     .disposed(by: disposeBag)
+
+    // swiftlint:disable:next trailing_closure
+    sourceCurrencyAmount
+      .map { $0 ?? 0 }
+      .subscribe(onNext: { [unowned self] amount in
+        let currency = self.sourceCurrency.value
+        let transactionCount = self.userAccount.transactionCount
+        let commission = self.commissionCalculator.computeCommission(
+          forCurrency: currency,
+          amount: amount,
+          transactionCount: transactionCount + 1)
+        self.commissionSubject.accept(commission)
+      })
+      .disposed(by: disposeBag)
   }
 }
 

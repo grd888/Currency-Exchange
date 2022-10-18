@@ -35,6 +35,11 @@ final class UserAccountTests: XCTestCase {
     XCTAssertEqual(sut.balance[.JPY], 2000000)
   }
 
+  func test_initialize_transactionCountIsZero() {
+    let sut = makeUserAccount()
+    XCTAssertEqual(sut.transactionCount, 0)
+  }
+
   func test_sourceCurrency_withPrimaryCurrencyNonZeroBalance() {
     let balance: AccountBalance = [.USD: 0, .JPY: 10000, .EUR: 1000]
     let sut = makeUserAccount(balance: balance)
@@ -84,6 +89,46 @@ final class UserAccountTests: XCTestCase {
     let sut = makeUserAccount(balance: balance)
 
     XCTAssertEqual(sut.currencyList(), [.EUR, .USD, .JPY])
+  }
+
+  func test_update_withSellTransaction_increasesTransactionCount() throws {
+    let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 1000]
+    let sut = makeUserAccount(balance: balance)
+    _ = try sut.update(transaction: .sell(
+      source: (.EUR, 100),
+      receive: (.USD, 130)
+    ))
+    XCTAssertEqual(sut.transactionCount, 1)
+  }
+  func test_update_withSellTransaction_reducesSourceBalance() throws {
+    let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 1000]
+    let sut = makeUserAccount(balance: balance)
+    _ = try sut.update(transaction: .sell(
+      source: (.EUR, 100),
+      receive: (.USD, 130)
+    ))
+    XCTAssertEqual(sut.balance[.EUR], 900)
+  }
+  func test_update_withSellTransaction_increasesReceiveBalance() throws {
+    let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: 1000]
+    let sut = makeUserAccount(balance: balance)
+    _ = try sut.update(transaction: .sell(
+      source: (.EUR, 100),
+      receive: (.USD, 130)
+    ))
+    XCTAssertEqual(sut.balance[.USD], 130)
+  }
+  func test_update_withSellTransaction_ifSourceBecomesNegative_throwsError() {
+    let eurBalance: Decimal = 1000
+    let eurOneOverBalance = eurBalance + 1
+    let balance: AccountBalance = [.USD: 0, .JPY: 0, .EUR: eurBalance]
+
+    let sut = makeUserAccount(balance: balance)
+
+    XCTAssertThrowsError(try sut.update(transaction: .sell(
+      source: (.EUR, eurOneOverBalance),
+      receive: (.USD, 130)
+    )))
   }
 
   // MARK: Helpers

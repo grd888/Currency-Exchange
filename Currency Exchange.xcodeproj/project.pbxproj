@@ -11,6 +11,7 @@
 		4D15FBE128FEC79E00479EAB /* CommissionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15FBE028FEC79E00479EAB /* CommissionCalculator.swift */; };
 		4D680F9328FECC8E00674195 /* FixedFiveCommission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9228FECC8E00674195 /* FixedFiveCommission.swift */; };
 		4D680F9528FECD1200674195 /* FixedAfterFiveCommissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */; };
+		4D680F9728FF521F00674195 /* UserAccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9628FF521F00674195 /* UserAccountError.swift */; };
 		4D6E788A28FD578700F11C6A /* InputTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788928FD578700F11C6A /* InputTextValidator.swift */; };
 		4D6E788C28FD57A500F11C6A /* InputAmountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */; };
 		4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */; };
@@ -64,6 +65,7 @@
 		4D15FBE028FEC79E00479EAB /* CommissionCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionCalculator.swift; sourceTree = "<group>"; };
 		4D680F9228FECC8E00674195 /* FixedFiveCommission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedFiveCommission.swift; sourceTree = "<group>"; };
 		4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAfterFiveCommissionTests.swift; sourceTree = "<group>"; };
+		4D680F9628FF521F00674195 /* UserAccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountError.swift; sourceTree = "<group>"; };
 		4D6E788928FD578700F11C6A /* InputTextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextValidator.swift; sourceTree = "<group>"; };
 		4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountValidator.swift; sourceTree = "<group>"; };
 		4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellViewModel.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE606F228FA4C6700D2F29D /* UserAccount.swift */,
+				4D680F9628FF521F00674195 /* UserAccountError.swift */,
 				4DE606F428FA4C9000D2F29D /* Currency.swift */,
 			);
 			path = "User Account";
@@ -553,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6E788C28FD57A500F11C6A /* InputAmountValidator.swift in Sources */,
+				4D680F9728FF521F00674195 /* UserAccountError.swift in Sources */,
 				4D6E788A28FD578700F11C6A /* InputTextValidator.swift in Sources */,
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
 				4DE6071628FABFCF00D2F29D /* SourceCellViewModel.swift in Sources */,
