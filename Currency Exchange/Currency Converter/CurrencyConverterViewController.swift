@@ -5,6 +5,7 @@
 //  Created by Greg Delgado on 10/13/22.
 //
 
+import RxSwift
 import UIKit
 
 class CurrencyConverterViewController: UIViewController {
@@ -64,6 +65,7 @@ class CurrencyConverterViewController: UIViewController {
 
   private var currencyPickerViewBottomConstraint: NSLayoutConstraint?
   private var currencySelectionType = CurrencySelectionType.source
+  private let disposeBag = DisposeBag()
 
   var viewModel: CurrencyConverterViewModel
 
@@ -82,11 +84,21 @@ class CurrencyConverterViewController: UIViewController {
     setNavigationBarBackground()
     setupTableView()
     setupPickerView()
+    setupObservables()
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     super.traitCollectionDidChange(previousTraitCollection)
     setNavigationBarBackground()
+  }
+
+  func setupObservables() {
+    // swiftlint:disable trailing_closure
+    viewModel.alertMessageObservable
+      .subscribe(onNext: { [weak self] title, message in
+        self?.showAlert(title: title, message: message)
+      })
+      .disposed(by: disposeBag)
   }
 
   private func setupTableView() {
@@ -124,6 +136,14 @@ class CurrencyConverterViewController: UIViewController {
     UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
       self.view.layoutIfNeeded()
     }
+  }
+
+  private func showAlert(title: String?, message: String?) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
+      self.viewModel.resetAmounts()
+    })
+    present(alert, animated: true)
   }
 
   @objc func done() {

@@ -16,6 +16,9 @@ class CurrencyConverterViewModel {
   var enableSubmitObservable: Observable<Bool> {
     return enableSubmitSubject.asObservable()
   }
+  var alertMessageObservable: Observable<(String?, String?)> {
+    return alertMessageSubject.asObservable()
+  }
 
   enum Section: Int, CaseIterable {
     case balances
@@ -31,6 +34,7 @@ class CurrencyConverterViewModel {
   private(set) var destinationCurrencyAmount = BehaviorRelay<Double>(value: 0)
   private(set) var enableSubmitSubject = BehaviorRelay<Bool>(value: false)
   private(set) var buttonTapSubject = PublishSubject<Void>()
+  private(set) var alertMessageSubject = PublishRelay<(String?, String?)>()
   private var disposeBag = DisposeBag()
 
   private var configuration: [Section: Int] = [
@@ -41,14 +45,15 @@ class CurrencyConverterViewModel {
 
   private var userAccount: UserAccount
   private var commissionCalculator: CommissionCalculator
-
+  private var conversionService: ConverterProtocol
   init(
     userAccount: UserAccount = UserAccount(),
-    commissionCalculator: CommissionCalculator = FixedFiveCommission()
+    commissionCalculator: CommissionCalculator = FixedFiveCommission(),
+    conversionService: ConverterProtocol = RemoteConversionService()
   ) {
     self.userAccount = userAccount
     self.commissionCalculator = commissionCalculator
-
+    self.conversionService = conversionService
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
     destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
@@ -110,18 +115,16 @@ class CurrencyConverterViewModel {
       let inputAmount = amount ?? 0
 
       let valid = currencyBalance.doubleValue >= inputAmount + commission
-        && inputAmount > 0
-        && src != dst
+      && inputAmount > 0
+      && src != dst
 
       self.enableSubmitSubject.accept(valid)
     }
     .disposed(by: disposeBag)
 
-    // swiftlint:disable:next trailing_closure
-    buttonTapSubject.subscribe(onNext: {
-      print("Tap")
-    })
-    .disposed(by: disposeBag)
+    buttonTapSubject
+      .subscribe(onNext: performConversion)
+      .disposed(by: disposeBag)
 
     // swiftlint:disable:next trailing_closure
     sourceCurrencyAmount
@@ -136,6 +139,59 @@ class CurrencyConverterViewModel {
         self.commissionSubject.accept(commission)
       })
       .disposed(by: disposeBag)
+  }
+
+  func performConversion() {
+    let commission = commissionSubject.value
+    let sourceCurrency = sourceCurrency.value
+    let sourceAmount = sourceCurrencyAmount.value ?? 0
+    let receiveCurrency = destinationCurrency.value
+    conversionService.convert(
+      from: (sourceCurrency, sourceAmount),
+      receive: receiveCurrency
+    ) { [weak self] result in
+      switch result {
+      case .success(let receiveAmount):
+        self?.processReceivedAmount(
+          commission: commission,
+          sourceCurrency: sourceCurrency,
+          sourceAmount: sourceAmount,
+          receiveCurrency: receiveCurrency,
+          receiveAmount: receiveAmount)
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
+
+  private func processReceivedAmount(
+    commission: Double,
+    sourceCurrency: Currency,
+    sourceAmount: Double,
+    receiveCurrency: Currency,
+    receiveAmount: Double
+  ) {
+    let source = "\(sourceAmount) \(sourceCurrency.toString())"
+    let received = "\(receiveAmount) \(receiveCurrency.toString())"
+
+    let sourceAdjustment = Decimal(sourceAmount + commission)
+    let receiveAdjustment = Decimal(receiveAmount)
+
+    updateUserAccount(transaction: .sell(
+      source: (sourceCurrency, sourceAdjustment),
+      receive: (receiveCurrency, receiveAdjustment)))
+
+    destinationCurrencyAmount.accept(receiveAmount)
+
+    let message = "You have converted \(source) to \(received). Commission Fee - \(commission)"
+    alertMessageSubject.accept(("Currency Converted", message))
+  }
+
+  func resetAmounts() {
+    sourceCurrencyAmount.accept(nil)
+    destinationCurrencyAmount.accept(0)
+    sourceCurrency.accept(userAccount.defaultSellCurrency())
+    destinationCurrency.accept(userAccount.defaultBuyCurrency())
   }
 }
 

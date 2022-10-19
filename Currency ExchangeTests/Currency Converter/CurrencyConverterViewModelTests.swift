@@ -166,10 +166,62 @@ final class CurrencyConverterViewModelTests: XCTestCase {
 
     XCTAssertFalse(sut.enableSubmitSubject.value)
   }
+
+  func test_convert_currency() {
+    let account = UserAccount(initialBalance: [
+      .EUR: 100,
+      .USD: 0,
+      .JPY: 0
+    ])
+    let expectedAmount = 130.33
+    let conversionService = MockConvertionService()
+    conversionService.completeWith(amount: expectedAmount)
+    let exp = expectation(description: "Waiting")
+    let sut = makeSUT(account, conversionService: conversionService)
+    sut.sourceCurrencyAmount.accept(100)
+    sut.selectSourceCurrency(atIndex: 0)
+    sut.selectDestinationCurrency(atIndex: 1)
+    // swiftlint:disable trailing_closure
+    sut.destinationCurrencyAmount
+      .skip(1)
+      .subscribe(onNext: { amount in
+        XCTAssertEqual(amount, expectedAmount)
+        exp.fulfill()
+      })
+      .disposed(by: disposeBag)
+    sut.performConversion()
+    wait(for: [exp], timeout: 1.0)
+  }
   // MARK: Helpers
 
-  private func makeSUT(_ account: UserAccount? = nil) -> CurrencyConverterViewModel {
-    let sut = CurrencyConverterViewModel(userAccount: account ?? makeUserAccount())
+  private func makeSUT(
+    _ account: UserAccount? = nil,
+    conversionService: ConverterProtocol = MockConvertionService()
+  ) -> CurrencyConverterViewModel {
+    let sut = CurrencyConverterViewModel(
+      userAccount: account ?? makeUserAccount(),
+      conversionService: conversionService)
     return sut
+  }
+}
+
+class MockConvertionService: ConverterProtocol {
+  var resultAmount: Double?
+  var error: ConversionError?
+
+  func completeWith(amount: Double) {
+    self.resultAmount = amount
+  }
+
+  func copleteWith(error: ConversionError) {
+    self.error = error
+  }
+
+  func convert(from: (Currency_Exchange.Currency, Double), receive: Currency_Exchange.Currency, completion: @escaping ((Result<Double, Currency_Exchange.ConversionError>) -> Void)) {
+    if let resultAmount = resultAmount {
+      completion(.success(resultAmount))
+    } else if let error = error {
+      completion(.failure(error))
+    }
   }
 }

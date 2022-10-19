@@ -13,6 +13,8 @@
 		4D680F9528FECD1200674195 /* FixedAfterFiveCommissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */; };
 		4D680F9728FF521F00674195 /* UserAccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9628FF521F00674195 /* UserAccountError.swift */; };
 		4D680F9A28FF638D00674195 /* ConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9928FF638D00674195 /* ConverterProtocol.swift */; };
+		4D680F9D28FFD78B00674195 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9C28FFD78B00674195 /* Conversion.swift */; };
+		4D680F9F28FFDE8E00674195 /* RemoteConversionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D680F9E28FFDE8E00674195 /* RemoteConversionService.swift */; };
 		4D6E788A28FD578700F11C6A /* InputTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788928FD578700F11C6A /* InputTextValidator.swift */; };
 		4D6E788C28FD57A500F11C6A /* InputAmountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */; };
 		4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */; };
@@ -68,6 +70,8 @@
 		4D680F9428FECD1200674195 /* FixedAfterFiveCommissionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAfterFiveCommissionTests.swift; sourceTree = "<group>"; };
 		4D680F9628FF521F00674195 /* UserAccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountError.swift; sourceTree = "<group>"; };
 		4D680F9928FF638D00674195 /* ConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterProtocol.swift; sourceTree = "<group>"; };
+		4D680F9C28FFD78B00674195 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		4D680F9E28FFDE8E00674195 /* RemoteConversionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConversionService.swift; sourceTree = "<group>"; };
 		4D6E788928FD578700F11C6A /* InputTextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextValidator.swift; sourceTree = "<group>"; };
 		4D6E788B28FD57A500F11C6A /* InputAmountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountValidator.swift; sourceTree = "<group>"; };
 		4D6E788F28FD636100F11C6A /* ButtonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = ConverterProtocol;
 			sourceTree = "<group>";
 		};
+		4D680F9B28FFD62800674195 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4D680F9C28FFD78B00674195 /* Conversion.swift */,
+				4D680F9E28FFDE8E00674195 /* RemoteConversionService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		4D6E788828FD576100F11C6A /* InputTextValidator */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +213,7 @@
 		4D73794028F7E1AF00DBDE7F /* Currency Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				4D680F9B28FFD62800674195 /* Network */,
 				4DE606F128FA4C5700D2F29D /* User Account */,
 				4DE606EE28FA440500D2F29D /* App */,
 				4DE606ED28FA43EB00D2F29D /* Currency Converter */,
@@ -572,10 +586,12 @@
 				4D73797228F7E21800DBDE7F /* CurrencyConverterViewController.swift in Sources */,
 				4DE6071628FABFCF00D2F29D /* SourceCellViewModel.swift in Sources */,
 				4D73799528F9883800DBDE7F /* CurrencyBalanceCell.swift in Sources */,
+				4D680F9D28FFD78B00674195 /* Conversion.swift in Sources */,
 				4DE606F328FA4C6700D2F29D /* UserAccount.swift in Sources */,
 				4DE6071128FAB9D200D2F29D /* DestinationCell.swift in Sources */,
 				4D73794228F7E1AF00DBDE7F /* AppDelegate.swift in Sources */,
 				4D6E789028FD636100F11C6A /* ButtonCellViewModel.swift in Sources */,
+				4D680F9F28FFDE8E00674195 /* RemoteConversionService.swift in Sources */,
 				4DE606EC28FA33FC00D2F29D /* ReusableView.swift in Sources */,
 				4DE6071E28FBFAB000D2F29D /* DestinationCellViewModel.swift in Sources */,
 				4D73797928F82BB100DBDE7F /* BalancesCell.swift in Sources */,
