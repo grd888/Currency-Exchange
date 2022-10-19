@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Conversion: Encodable {
+struct Conversion: Codable {
   let amount: String
   let currency: String
 }

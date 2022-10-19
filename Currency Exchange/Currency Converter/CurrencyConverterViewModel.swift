@@ -47,14 +47,17 @@ class CurrencyConverterViewModel {
   private var userAccount: UserAccount
   private var commissionCalculator: CommissionCalculator
   private var conversionService: ConverterProtocol
+  private var formatter: CurrencyFormatting
   init(
     userAccount: UserAccount = UserAccount(),
     commissionCalculator: CommissionCalculator = FixedFiveCommission(),
-    conversionService: ConverterProtocol = RemoteConversionService()
+    conversionService: ConverterProtocol = RemoteConversionService(),
+    formatter: CurrencyFormatting = CurrencyFormatter()
   ) {
     self.userAccount = userAccount
     self.commissionCalculator = commissionCalculator
     self.conversionService = conversionService
+    self.formatter = formatter
     currentBalance = BehaviorRelay(value: userAccount.balance)
     sourceCurrency = BehaviorRelay(value: userAccount.defaultSellCurrency())
     destinationCurrency = BehaviorRelay(value: userAccount.defaultBuyCurrency())
@@ -88,7 +91,8 @@ class CurrencyConverterViewModel {
   func getDestinationCellViewModel() -> DestinationCellViewModel {
     return DestinationCellViewModel(
       destinationCurrencySubject: destinationCurrency,
-      destinationCurrencyAmountSubject: destinationCurrencyAmount
+      destinationCurrencyAmountSubject: destinationCurrencyAmount,
+      formatter: formatter
     )
   }
 
@@ -173,8 +177,10 @@ class CurrencyConverterViewModel {
     receiveCurrency: Currency,
     receiveAmount: Double
   ) {
-    let source = "\(sourceAmount) \(sourceCurrency.toString())"
-    let received = "\(receiveAmount) \(receiveCurrency.toString())"
+    let sourceCurrencyAmount = (try? formatter.format(amount: sourceAmount, in: sourceCurrency)) ?? ""
+    let receiveCurrencyAmount = (try? formatter.format(amount: receiveAmount, in: receiveCurrency)) ?? ""
+    let source = "\(sourceCurrencyAmount) \(sourceCurrency.toString())"
+    let received = "\(receiveCurrencyAmount) \(receiveCurrency.toString())"
 
     let sourceAdjustment = Decimal(sourceAmount + commission)
     let receiveAdjustment = Decimal(receiveAmount)
