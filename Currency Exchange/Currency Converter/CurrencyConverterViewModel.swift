@@ -164,8 +164,8 @@ class CurrencyConverterViewModel {
           sourceAmount: sourceAmount,
           receiveCurrency: receiveCurrency,
           receiveAmount: receiveAmount)
-      case .failure(let error):
-        print(error)
+      case .failure:
+        self?.alertMessageSubject.accept(("Error", "Currency Exchange failed"))
       }
     }
   }

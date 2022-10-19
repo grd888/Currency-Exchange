@@ -11,7 +11,6 @@ class RemoteConversionService: ConverterProtocol {
   func convert(from: (Currency, Double), receive: Currency, completion: @escaping ((Result<Double, ConversionError>) -> Void)) {
     // swiftlint:disable force_unwrapping
     let url = URL(string: "http://api.evp.lt/currency/commercial/exchange/\(from.1)-\(from.0.toString())/\(receive.toString())/latest")!
-    print(url)
     let urlRequest = URLRequest(url: url)
     URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
       DispatchQueue.main.async {
