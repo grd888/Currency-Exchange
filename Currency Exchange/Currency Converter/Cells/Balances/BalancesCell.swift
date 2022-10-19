@@ -5,6 +5,7 @@
 //  Created by Greg Delgado on 10/13/22.
 //
 
+import RxSwift
 import UIKit
 
 class BalancesCell: UITableViewCell {
@@ -19,6 +20,7 @@ class BalancesCell: UITableViewCell {
     return collectionView
   }()
   private var viewModel: BalancesCellViewModel?
+  private var disposeBag = DisposeBag()
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,6 +33,16 @@ class BalancesCell: UITableViewCell {
 
   func configure(with viewModel: BalancesCellViewModel) {
     self.viewModel = viewModel
+    // swiftlint:disable trailing_closure
+    viewModel.currentBalance.subscribe(onNext: { [weak self] _ in
+      self?.collectionView.reloadData()
+    })
+    .disposed(by: disposeBag)
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    disposeBag = DisposeBag()
   }
 }
 

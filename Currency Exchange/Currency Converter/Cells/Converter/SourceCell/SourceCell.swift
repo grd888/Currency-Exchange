@@ -33,6 +33,9 @@ class SourceCell: UITableViewCell {
     viewModel.sourceCurrencyObservable
       .bind(to: currencyButton.rx.title(for: .normal))
       .disposed(by: disposeBag)
+    viewModel.resetAmountObservable
+      .bind(to: valueTextField.rx.text)
+      .disposed(by: disposeBag)
     valueTextField.rx.text
       .orEmpty
       .map(Double.init)

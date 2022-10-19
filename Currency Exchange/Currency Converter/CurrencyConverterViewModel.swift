@@ -33,6 +33,7 @@ class CurrencyConverterViewModel {
   private(set) var sourceCurrencyAmount = BehaviorRelay<Double?>(value: nil)
   private(set) var destinationCurrencyAmount = BehaviorRelay<Double>(value: 0)
   private(set) var enableSubmitSubject = BehaviorRelay<Bool>(value: false)
+  private(set) var resetAmountSubject = PublishRelay<String?>()
   private(set) var buttonTapSubject = PublishSubject<Void>()
   private(set) var alertMessageSubject = PublishRelay<(String?, String?)>()
   private var disposeBag = DisposeBag()
@@ -79,7 +80,8 @@ class CurrencyConverterViewModel {
   func getSourceCellViewModel() -> SourceCellViewModel {
     return SourceCellViewModel(
       sourceCurrencySubject: sourceCurrency,
-      sourceCurrencyAmountSubject: sourceCurrencyAmount
+      sourceCurrencyAmountSubject: sourceCurrencyAmount,
+      resetAmountSubject: resetAmountSubject
     )
   }
 
@@ -188,6 +190,7 @@ class CurrencyConverterViewModel {
   }
 
   func resetAmounts() {
+    resetAmountSubject.accept(nil)
     sourceCurrencyAmount.accept(nil)
     destinationCurrencyAmount.accept(0)
     sourceCurrency.accept(userAccount.defaultSellCurrency())
